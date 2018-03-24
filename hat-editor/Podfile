@@ -1,0 +1,21 @@
+workspace 'hat-editor.xcworkspace'
+platform :ios, '11.0'
+
+target 'hat-editor' do
+  use_frameworks!
+
+  # Pods for hat-editor
+
+  pod 'RealmSwift'
+  pod 'Alamofire'
+  pod 'SwiftGen'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxRealm'
+
+  target 'hat-editorTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

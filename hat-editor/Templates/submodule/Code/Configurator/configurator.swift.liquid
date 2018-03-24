@@ -1,0 +1,45 @@
+//
+//  {{ prefix }}{{ module_info.name }} {{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import UIKit
+
+class {{ module_info.name }}ModuleConfigurator {
+
+    typealias {{ module_info.name }}ModuleContext = {{ module_info.name }}InteractorContext // & RouterContext may be
+
+    @discardableResult
+    static func configureModuleFor(viewInput: UIViewController?,
+                                   context: {{ module_info.name }}ModuleContext,
+                                   output: {{ module_info.name }}RouterOutput?) -> {{ module_info.name }}RouterInput? {
+
+        if let viewController = viewInput as? {{ module_info.name }}ViewController {
+            return configure(viewController: viewController, context: context, output: output)
+        }
+        return nil
+    }
+
+    private static func configure(viewController: {{ module_info.name }}ViewController,
+                                  context: {{ module_info.name }}ModuleContext,
+                                  output: {{ module_info.name }}RouterOutput?) -> {{ module_info.name }}RouterInput {
+
+        let presenter = {{ module_info.name }}Presenter()
+        let interactor = {{ module_info.name }}Interactor(context: context)
+        let router = {{ module_info.name }}Router(moduleInput: presenter, output: output)
+
+        presenter.view = viewController
+        presenter.router = router
+
+        interactor.output = presenter
+
+        presenter.interactor = interactor
+        viewController.output = presenter
+
+        return router
+    }
+
+}

@@ -1,0 +1,23 @@
+//
+//  {{ prefix }}{{ module_info.name }} {{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+typealias {{ module_info.name }}InteractorContext = AppContext // & write more precisely
+
+class {{ module_info.name }}Interactor {
+    weak var output: {{ module_info.name }}InteractorOutput!
+    private let context: {{ module_info.name }}InteractorContext
+
+    init(context: {{ module_info.name }}InteractorContext) {
+        self.context = context
+    }
+}
+
+// MARK: - {{ module_info.name }}InteractorInput
+
+extension {{ module_info.name }}Interactor: {{ module_info.name }}InteractorInput {
+}
