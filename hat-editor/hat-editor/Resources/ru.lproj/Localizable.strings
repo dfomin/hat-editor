@@ -6,4 +6,11 @@
   Copyright © 2018 Pigowl. All rights reserved.
 */
 
+"Ok" = "Ок";
+"Yes" = "Да";
+"No" = "Нет";
+"Error" = "Ошибка";
+"Repeat" = "Повторить";
+"Cancel" = "Отмена";
+
 "Packages_Title" = "Наборы слов";

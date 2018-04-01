@@ -15,12 +15,24 @@ class PackagesPresenter: PackagesModuleInput {
 // MARK: - PackagesViewOutput
 
 extension PackagesPresenter: PackagesViewOutput {
+    func refreshPackagesList() {
+        interactor.refreshPackages()
+    }
+
     func viewIsReady() {
         view.setupInitialState()
+        interactor.refreshPackages()
     }
 }
 
 // MARK: - PackagesInteractorOutput
 
 extension PackagesPresenter: PackagesInteractorOutput {
+    func didFail(with error: Error) {
+        view.showError(error: error)
+    }
+
+    func didUpdate(packages: [PhrasesPackage]) {
+        print(packages)
+    }
 }

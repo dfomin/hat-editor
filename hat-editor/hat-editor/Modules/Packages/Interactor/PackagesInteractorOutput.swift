@@ -9,5 +9,6 @@
 import Foundation
 
 protocol PackagesInteractorOutput: AnyObject {
-
+    func didFail(with error: Error)
+    func didUpdate(packages: [PhrasesPackage])
 }

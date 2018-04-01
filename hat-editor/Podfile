@@ -6,12 +6,10 @@ target 'hat-editor' do
 
   # Pods for hat-editor
 
-  pod 'RealmSwift'
-  pod 'Alamofire'
   pod 'SwiftGen'
-  pod 'RxSwift'
-  pod 'RxCocoa'
+  pod 'RxAlamofire'
   pod 'RxRealm'
+  pod 'RxCocoa'
 
   target 'hat-editorTests' do
     inherit! :search_paths

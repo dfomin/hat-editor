@@ -9,11 +9,15 @@
 import Foundation
 
 protocol HasApiService {
-    //var apiService: ApiService
+    var apiService: ApiService { get }
 }
 
 protocol HasStoreService {
-    //var storeService: StoreService
+    var storeService: StoreService { get }
 }
 
-typealias AppContext = HasApiService & HasStoreService
+protocol HasPackagesService {
+    var packagesService: PackagesService { get }
+}
+
+typealias AppContext = HasApiService & HasStoreService & HasPackagesService

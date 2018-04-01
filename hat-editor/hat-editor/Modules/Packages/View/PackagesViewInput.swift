@@ -8,4 +8,5 @@
 
 protocol PackagesViewInput: AnyObject {
     func setupInitialState()
+    func showError(error: Error)
 }

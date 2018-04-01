@@ -9,4 +9,6 @@
 import Foundation
 
 protocol PackagesInteractorInput {
+    func initiate()
+    func refreshPackages()
 }

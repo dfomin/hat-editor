@@ -2,3 +2,4 @@
 *.orig
 project.xcworkspace/
 xcuserdata/
+ApiSettings.swift

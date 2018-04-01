@@ -8,4 +8,5 @@
 
 protocol PackagesViewOutput {
     func viewIsReady()
+    func refreshPackagesList()
 }

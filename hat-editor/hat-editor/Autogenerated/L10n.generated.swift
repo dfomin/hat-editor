@@ -7,8 +7,20 @@ import Foundation
 
 // swiftlint:disable explicit_type_interface identifier_name line_length nesting type_body_length type_name
 internal enum L10n {
+  /// Отмена
+  internal static let cancel = L10n.tr("Localizable", "Cancel")
+  /// Ошибка
+  internal static let error = L10n.tr("Localizable", "Error")
+  /// Нет
+  internal static let no = L10n.tr("Localizable", "No")
+  /// Ок
+  internal static let ok = L10n.tr("Localizable", "Ok")
   /// Наборы слов
   internal static let packagesTitle = L10n.tr("Localizable", "Packages_Title")
+  /// Повторить
+  internal static let `repeat` = L10n.tr("Localizable", "Repeat")
+  /// Да
+  internal static let yes = L10n.tr("Localizable", "Yes")
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length nesting type_body_length type_name
 

@@ -9,11 +9,13 @@
 import Foundation
 
 class Context: AppContext {
-    //var apiService: ApiService
-    //var storeService: StoreService
+    let apiService: ApiService
+    let storeService: StoreService
+    let packagesService: PackagesService
 
     init() {
-        // apiService = API()
-        // storeService = Store()
+        apiService = PigowlAPI()
+        storeService = Store()
+        packagesService = PackagesServiceImpl(api: apiService, store: storeService)
     }
 }
