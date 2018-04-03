@@ -48,6 +48,7 @@
 		C615F97820710D3100B258AB /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615F97720710D3100B258AB /* Store.swift */; };
 		C615F97A20710DD400B258AB /* PackagesServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615F97920710DD400B258AB /* PackagesServiceImpl.swift */; };
 		C615F97C2071173300B258AB /* UIAlertControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615F97B2071173300B258AB /* UIAlertControllerExt.swift */; };
+		C615F97E20712AA900B258AB /* PackagesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615F97D20712AA900B258AB /* PackagesList.swift */; };
 		C62103FD2066AFEF00FE974A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C62103F52066AFEE00FE974A /* LaunchScreen.storyboard */; };
 		C62103FF2066AFEF00FE974A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C62103F82066AFEE00FE974A /* Assets.xcassets */; };
 		C62104012066AFEF00FE974A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62103FA2066AFEE00FE974A /* AppDelegate.swift */; };
@@ -60,6 +61,7 @@
 		C62104172067993C00FE974A /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62104162067993C00FE974A /* ApiService.swift */; };
 		C62104192067994C00FE974A /* PigowlAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62104182067994C00FE974A /* PigowlAPI.swift */; };
 		C621041B20679ABC00FE974A /* ApiSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C621041A20679ABC00FE974A /* ApiSettings.swift */; };
+		C6DB143420732B7200D6ADC4 /* PackageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DB143320732B7200D6ADC4 /* PackageContainer.swift */; };
 		D0837055299EA1A6B149B297 /* RootInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77396291DA184BE39B6FFDEE /* RootInteractorTests.swift */; };
 		F9D916154431F453C65A45F9 /* RootConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF4A2D2FE362DCC3C3907F5 /* RootConfigurator.swift */; };
 		FD1C2917F88ED674E2483B8C /* PackagesConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34E6F1845B8321391531BD9 /* PackagesConfiguratorTests.swift */; };
@@ -110,6 +112,7 @@
 		C615F97720710D3100B258AB /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		C615F97920710DD400B258AB /* PackagesServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesServiceImpl.swift; sourceTree = "<group>"; };
 		C615F97B2071173300B258AB /* UIAlertControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExt.swift; sourceTree = "<group>"; };
+		C615F97D20712AA900B258AB /* PackagesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesList.swift; sourceTree = "<group>"; };
 		C62103D02066AD7D00FE974A /* hat-editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hat-editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C62103E42066AD7D00FE974A /* hat-editorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "hat-editorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C62103EA2066AD7D00FE974A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -126,6 +129,7 @@
 		C62104162067993C00FE974A /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		C62104182067994C00FE974A /* PigowlAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PigowlAPI.swift; sourceTree = "<group>"; };
 		C621041A20679ABC00FE974A /* ApiSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSettings.swift; sourceTree = "<group>"; };
+		C6DB143320732B7200D6ADC4 /* PackageContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageContainer.swift; sourceTree = "<group>"; };
 		C744AB1134967A11ED86135B /* Pods_hat_editorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hat_editorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B104CA5D3FBDF0B0B76160 /* PackagesRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PackagesRouterInput.swift; sourceTree = "<group>"; };
 		D62EFF9E508EB27704D00C9E /* PackagesPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PackagesPresenterTests.swift; sourceTree = "<group>"; };
@@ -345,6 +349,8 @@
 				C615F96A2070F18900B258AB /* PhrasesPackage.swift */,
 				C615F96C2070F21E00B258AB /* Phrase.swift */,
 				C615F96E2070F34200B258AB /* Review.swift */,
+				C6DB143320732B7200D6ADC4 /* PackageContainer.swift */,
+				C615F97D20712AA900B258AB /* PackagesList.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -800,6 +806,7 @@
 				45F9854B773AAAC467FF02C9 /* RootViewController.swift in Sources */,
 				1F3FBADB67FE3B0E49793E30 /* RootModuleInput.swift in Sources */,
 				755999BF930FBA8CB39DBE0A /* RootPresenter.swift in Sources */,
+				C6DB143420732B7200D6ADC4 /* PackageContainer.swift in Sources */,
 				A4065326325C4827456E560B /* RootInteractorInput.swift in Sources */,
 				C615F9632070E71900B258AB /* RootInitializator.swift in Sources */,
 				720F7F8A52167C1DFCAA5EB3 /* RootInteractorOutput.swift in Sources */,
@@ -810,6 +817,7 @@
 				36C63FC90153834B2B7D80DE /* RootRouterOutput.swift in Sources */,
 				78755B4E0F66400C0A836BB5 /* RootRouter.swift in Sources */,
 				F9D916154431F453C65A45F9 /* RootConfigurator.swift in Sources */,
+				C615F97E20712AA900B258AB /* PackagesList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -32,7 +32,7 @@ extension PackagesInteractor: PackagesInteractorInput {
         context.packagesService.packagesOutput.subscribe(onNext: { [unowned self] result in
             switch result {
             case .success(let value):
-                self.output.didUpdate(packages: value)
+                self.output.didUpdate(packages: value.packages)
             case .error(let error):
                 self.output.didFail(with: error)
             }

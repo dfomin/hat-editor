@@ -15,7 +15,8 @@ class PackagesServiceImpl {
 
     private let refreshPackagesSubject = PublishSubject<Void>()
     /// temporary: remove when store will be introduced
-    private let packagesSubject = BehaviorRelay<PigowlAPIResult<[PhrasesPackage]>>(value: .success([]))
+    private let packagesSubject = BehaviorRelay<PigowlAPIResult<PackagesList>>(value:
+        .success(PackagesList(packages: [], result: true)))
 
     private let bag = DisposeBag()
 
@@ -40,7 +41,7 @@ extension PackagesServiceImpl: PackagesService {
         return refreshPackagesSubject.asObserver()
     }
 
-    var packagesOutput: Observable<PigowlAPIResult<[PhrasesPackage]>> {
+    var packagesOutput: Observable<PigowlAPIResult<PackagesList>> {
         return packagesSubject.asObservable()
     }
 }

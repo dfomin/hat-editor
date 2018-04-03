@@ -30,9 +30,11 @@ extension PackagesPresenter: PackagesViewOutput {
 extension PackagesPresenter: PackagesInteractorOutput {
     func didFail(with error: Error) {
         view.showError(error: error)
+        view.endRefreshing()
     }
 
-    func didUpdate(packages: [PhrasesPackage]) {
+    func didUpdate(packages: [PackageContainer]) {
+        view.endRefreshing()
         print(packages)
     }
 }

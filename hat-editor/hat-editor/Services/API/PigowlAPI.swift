@@ -19,7 +19,7 @@ enum PigowlAPIError: Error {
 }
 
 class PigowlAPI: ApiService {
-    func allPackages() -> Observable<PigowlAPIResult<[PhrasesPackage]>> {
+    func allPackages() -> Observable<PigowlAPIResult<PackagesList>> {
         let suffix = Settings.readPortComponent + Settings.devPortSuffix + "/getPacks"
         return makeGetRequest(suffix: suffix)
     }
@@ -35,7 +35,9 @@ private extension PigowlAPI {
 //            .debug()
             .flatMap({ arg -> Observable<PigowlAPIResult<T>> in
                 do {
+                    print(String(data: arg.1, encoding: .utf8))
                     let value = try JSONDecoder().decode(T.self, from: arg.1)
+                    print(value)
                     return Observable.just(PigowlAPIResult.success(value))
                 } catch {
                     return Observable.just(PigowlAPIResult.error(error))

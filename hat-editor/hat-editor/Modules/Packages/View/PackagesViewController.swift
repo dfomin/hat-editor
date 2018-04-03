@@ -31,6 +31,9 @@ extension PackagesViewController: PackagesViewInput {
         refreshControl.addTarget(self, action: #selector(didRefresh), for: .valueChanged)
         tableView.addSubview(refreshControl)
     }
+    func endRefreshing() {
+        refreshControl.endRefreshing()
+    }
     func showError(error: Error) {
         let alert = UIAlertController.alertController(type: .error(error.localizedDescription),
                                                       handler: { [unowned self] _ in
