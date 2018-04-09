@@ -6,7 +6,10 @@
 //  Copyright © 2018 Pigowl. All rights reserved.
 //
 
-import Foundation
+import RxSwift
 
 protocol StoreService {
+    var packagesInput: AnyObserver<[PhrasesPackage]> {get}
+
+    var packagesOutput: Observable<[PhrasesPackage]> {get}
 }

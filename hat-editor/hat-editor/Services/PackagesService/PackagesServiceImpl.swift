@@ -14,9 +14,7 @@ class PackagesServiceImpl {
     private let store: StoreService
 
     private let refreshPackagesSubject = PublishSubject<Void>()
-    /// temporary: remove when store will be introduced
-    private let packagesSubject = BehaviorRelay<PigowlAPIResult<PackagesList>>(value:
-        .success(PackagesList(packages: [], result: true)))
+    private let errors = PublishSubject<Error>()
 
     private let bag = DisposeBag()
 
@@ -24,14 +22,30 @@ class PackagesServiceImpl {
         self.api = api
         self.store = store
 
-        refreshPackagesSubject
-            .flatMap({ [unowned self] _ in
+        let request = refreshPackagesSubject
+            .flatMap { [unowned self] _ in
                 return self.api.allPackages()
-            })
-            .do(onNext: { result in
-                print(result)
-            })
-            .bind(to: packagesSubject) // TODO: bind to store
+            }
+            .share()
+
+        request
+            .flatMap { result -> Observable<Error> in
+                if case .error(let error) = result {
+                    return .just(error)
+                }
+                return .empty()
+            }
+            .bind(to: errors)
+            .disposed(by: bag)
+
+        request
+            .flatMap { result -> Observable<[PhrasesPackage]> in
+                if case .success(let value) = result {
+                    return .just(value.packages.map { $0.package } )
+                }
+                return .empty()
+            }
+            .bind(to: store.packagesInput)
             .disposed(by: bag)
     }
 }
@@ -41,7 +55,11 @@ extension PackagesServiceImpl: PackagesService {
         return refreshPackagesSubject.asObserver()
     }
 
-    var packagesOutput: Observable<PigowlAPIResult<PackagesList>> {
-        return packagesSubject.asObservable()
+    var packagesErrorsOutput: Observable<Error> {
+        return errors.asObservable()
+    }
+
+    var packagesOutput: Observable<[PhrasesPackage]> {
+        return store.packagesOutput
     }
 }

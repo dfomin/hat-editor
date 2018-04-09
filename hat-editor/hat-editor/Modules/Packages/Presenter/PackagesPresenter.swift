@@ -21,6 +21,7 @@ extension PackagesPresenter: PackagesViewOutput {
 
     func viewIsReady() {
         view.setupInitialState()
+        interactor.initiate()
         interactor.refreshPackages()
     }
 }
@@ -33,8 +34,7 @@ extension PackagesPresenter: PackagesInteractorOutput {
         view.endRefreshing()
     }
 
-    func didUpdate(packages: [PackageContainer]) {
+    func didUpdate(packages: [PhrasesPackage]) {
         view.endRefreshing()
-        print(packages)
     }
 }

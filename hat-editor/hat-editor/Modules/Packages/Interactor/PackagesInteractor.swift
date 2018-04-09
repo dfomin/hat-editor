@@ -30,12 +30,11 @@ extension PackagesInteractor: PackagesInteractorInput {
 
     func initiate() {
         context.packagesService.packagesOutput.subscribe(onNext: { [unowned self] result in
-            switch result {
-            case .success(let value):
-                self.output.didUpdate(packages: value.packages)
-            case .error(let error):
-                self.output.didFail(with: error)
-            }
+            self.output.didUpdate(packages: result)
+        }).disposed(by: bag)
+
+        context.packagesService.packagesErrorsOutput.subscribe(onNext: { [unowned self] error in
+            self.output.didFail(with: error)
         }).disposed(by: bag)
     }
 }

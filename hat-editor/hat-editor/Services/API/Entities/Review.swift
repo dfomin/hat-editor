@@ -10,6 +10,7 @@ import Foundation
 
 struct Review {
     let author: String
+    let phrase: String
     let status: ReviewStatus
 }
 

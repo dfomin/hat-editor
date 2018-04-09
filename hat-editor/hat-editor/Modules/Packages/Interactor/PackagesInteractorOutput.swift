@@ -10,5 +10,5 @@ import Foundation
 
 protocol PackagesInteractorOutput: AnyObject {
     func didFail(with error: Error)
-    func didUpdate(packages: [PackageContainer])
+    func didUpdate(packages: [PhrasesPackage])
 }

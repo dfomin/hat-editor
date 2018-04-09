@@ -49,6 +49,7 @@
 		C615F97A20710DD400B258AB /* PackagesServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615F97920710DD400B258AB /* PackagesServiceImpl.swift */; };
 		C615F97C2071173300B258AB /* UIAlertControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615F97B2071173300B258AB /* UIAlertControllerExt.swift */; };
 		C615F97E20712AA900B258AB /* PackagesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615F97D20712AA900B258AB /* PackagesList.swift */; };
+		C6179C78207B385B008DF549 /* RealmMigrationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6179C77207B385B008DF549 /* RealmMigrationHandler.swift */; };
 		C62103FD2066AFEF00FE974A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C62103F52066AFEE00FE974A /* LaunchScreen.storyboard */; };
 		C62103FF2066AFEF00FE974A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C62103F82066AFEE00FE974A /* Assets.xcassets */; };
 		C62104012066AFEF00FE974A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62103FA2066AFEE00FE974A /* AppDelegate.swift */; };
@@ -61,6 +62,12 @@
 		C62104172067993C00FE974A /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62104162067993C00FE974A /* ApiService.swift */; };
 		C62104192067994C00FE974A /* PigowlAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62104182067994C00FE974A /* PigowlAPI.swift */; };
 		C621041B20679ABC00FE974A /* ApiSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C621041A20679ABC00FE974A /* ApiSettings.swift */; };
+		C653F814207C638000AD4EAD /* RxOptional.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653F813207C638000AD4EAD /* RxOptional.swift */; };
+		C653F823207D308600AD4EAD /* ReviewObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653F81F207D308600AD4EAD /* ReviewObject.swift */; };
+		C653F824207D308600AD4EAD /* Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653F820207D308600AD4EAD /* Storable.swift */; };
+		C653F825207D308600AD4EAD /* PhrasesPackageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653F821207D308600AD4EAD /* PhrasesPackageObject.swift */; };
+		C653F826207D308600AD4EAD /* PhraseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653F822207D308600AD4EAD /* PhraseObject.swift */; };
+		C653F828207D31CA00AD4EAD /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653F827207D31CA00AD4EAD /* Realm.swift */; };
 		C6DB143420732B7200D6ADC4 /* PackageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DB143320732B7200D6ADC4 /* PackageContainer.swift */; };
 		D0837055299EA1A6B149B297 /* RootInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77396291DA184BE39B6FFDEE /* RootInteractorTests.swift */; };
 		F9D916154431F453C65A45F9 /* RootConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF4A2D2FE362DCC3C3907F5 /* RootConfigurator.swift */; };
@@ -113,6 +120,7 @@
 		C615F97920710DD400B258AB /* PackagesServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesServiceImpl.swift; sourceTree = "<group>"; };
 		C615F97B2071173300B258AB /* UIAlertControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExt.swift; sourceTree = "<group>"; };
 		C615F97D20712AA900B258AB /* PackagesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesList.swift; sourceTree = "<group>"; };
+		C6179C77207B385B008DF549 /* RealmMigrationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMigrationHandler.swift; sourceTree = "<group>"; };
 		C62103D02066AD7D00FE974A /* hat-editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hat-editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C62103E42066AD7D00FE974A /* hat-editorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "hat-editorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C62103EA2066AD7D00FE974A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -129,6 +137,12 @@
 		C62104162067993C00FE974A /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		C62104182067994C00FE974A /* PigowlAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PigowlAPI.swift; sourceTree = "<group>"; };
 		C621041A20679ABC00FE974A /* ApiSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSettings.swift; sourceTree = "<group>"; };
+		C653F813207C638000AD4EAD /* RxOptional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxOptional.swift; sourceTree = "<group>"; };
+		C653F81F207D308600AD4EAD /* ReviewObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewObject.swift; sourceTree = "<group>"; };
+		C653F820207D308600AD4EAD /* Storable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storable.swift; sourceTree = "<group>"; };
+		C653F821207D308600AD4EAD /* PhrasesPackageObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhrasesPackageObject.swift; sourceTree = "<group>"; };
+		C653F822207D308600AD4EAD /* PhraseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhraseObject.swift; sourceTree = "<group>"; };
+		C653F827207D31CA00AD4EAD /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
 		C6DB143320732B7200D6ADC4 /* PackageContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageContainer.swift; sourceTree = "<group>"; };
 		C744AB1134967A11ED86135B /* Pods_hat_editorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hat_editorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B104CA5D3FBDF0B0B76160 /* PackagesRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PackagesRouterInput.swift; sourceTree = "<group>"; };
@@ -339,6 +353,8 @@
 				C615F9652070E8B300B258AB /* UIStoryboardExt.swift */,
 				C615F9672070E98300B258AB /* UIViewControllerAsNavigator.swift */,
 				C615F97B2071173300B258AB /* UIAlertControllerExt.swift */,
+				C653F813207C638000AD4EAD /* RxOptional.swift */,
+				C653F827207D31CA00AD4EAD /* Realm.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -346,9 +362,9 @@
 		C615F9692070F15F00B258AB /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				C615F96A2070F18900B258AB /* PhrasesPackage.swift */,
-				C615F96C2070F21E00B258AB /* Phrase.swift */,
 				C615F96E2070F34200B258AB /* Review.swift */,
+				C615F96C2070F21E00B258AB /* Phrase.swift */,
+				C615F96A2070F18900B258AB /* PhrasesPackage.swift */,
 				C6DB143320732B7200D6ADC4 /* PackageContainer.swift */,
 				C615F97D20712AA900B258AB /* PackagesList.swift */,
 			);
@@ -358,8 +374,10 @@
 		C615F97120710CA400B258AB /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				C653F81E207D308600AD4EAD /* Objects */,
 				C615F97520710CFC00B258AB /* StoreService.swift */,
 				C615F97720710D3100B258AB /* Store.swift */,
+				C6179C77207B385B008DF549 /* RealmMigrationHandler.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -483,6 +501,17 @@
 				C62104182067994C00FE974A /* PigowlAPI.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		C653F81E207D308600AD4EAD /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				C653F820207D308600AD4EAD /* Storable.swift */,
+				C653F821207D308600AD4EAD /* PhrasesPackageObject.swift */,
+				C653F822207D308600AD4EAD /* PhraseObject.swift */,
+				C653F81F207D308600AD4EAD /* ReviewObject.swift */,
+			);
+			path = Objects;
 			sourceTree = "<group>";
 		};
 		D2528F5DF75D956F76BCFCF0 /* Interactor */ = {
@@ -775,10 +804,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C62104012066AFEF00FE974A /* AppDelegate.swift in Sources */,
+				C6179C78207B385B008DF549 /* RealmMigrationHandler.swift in Sources */,
+				C653F825207D308600AD4EAD /* PhrasesPackageObject.swift in Sources */,
 				C615F9662070E8B300B258AB /* UIStoryboardExt.swift in Sources */,
 				C62104112066C3C700FE974A /* AppContext.swift in Sources */,
 				C621041B20679ABC00FE974A /* ApiSettings.swift in Sources */,
 				C62104172067993C00FE974A /* ApiService.swift in Sources */,
+				C653F823207D308600AD4EAD /* ReviewObject.swift in Sources */,
+				C653F828207D31CA00AD4EAD /* Realm.swift in Sources */,
 				C621040A2066B86A00FE974A /* L10n.generated.swift in Sources */,
 				C615F9682070E98300B258AB /* UIViewControllerAsNavigator.swift in Sources */,
 				C615F97A20710DD400B258AB /* PackagesServiceImpl.swift in Sources */,
@@ -786,12 +819,14 @@
 				C615F97420710CC100B258AB /* PackagesService.swift in Sources */,
 				C62104192067994C00FE974A /* PigowlAPI.swift in Sources */,
 				C621040F2066C3B100FE974A /* Context.swift in Sources */,
+				C653F814207C638000AD4EAD /* RxOptional.swift in Sources */,
 				38152125EACB8E4DF8228377 /* PackagesViewInput.swift in Sources */,
 				63E94AC3121C2C94FA55561E /* PackagesViewOutput.swift in Sources */,
 				7C955087E71EA655A5C1C38B /* PackagesViewController.swift in Sources */,
 				0C1D6D0243898126320692ED /* PackagesModuleInput.swift in Sources */,
 				0802CF94EDCE8365512F4AC3 /* PackagesPresenter.swift in Sources */,
 				C2F7B64397F7718A25157562 /* PackagesInteractorInput.swift in Sources */,
+				C653F824207D308600AD4EAD /* Storable.swift in Sources */,
 				C615F97C2071173300B258AB /* UIAlertControllerExt.swift in Sources */,
 				C615F97620710CFC00B258AB /* StoreService.swift in Sources */,
 				9F6DD041605030FCBB4D7D86 /* PackagesInteractorOutput.swift in Sources */,
@@ -806,6 +841,7 @@
 				45F9854B773AAAC467FF02C9 /* RootViewController.swift in Sources */,
 				1F3FBADB67FE3B0E49793E30 /* RootModuleInput.swift in Sources */,
 				755999BF930FBA8CB39DBE0A /* RootPresenter.swift in Sources */,
+				C653F826207D308600AD4EAD /* PhraseObject.swift in Sources */,
 				C6DB143420732B7200D6ADC4 /* PackageContainer.swift in Sources */,
 				A4065326325C4827456E560B /* RootInteractorInput.swift in Sources */,
 				C615F9632070E71900B258AB /* RootInitializator.swift in Sources */,

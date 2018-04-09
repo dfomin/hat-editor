@@ -10,6 +10,37 @@ import RealmSwift
 import RxSwift
 import RxRealm
 
-class Store: StoreService {
+class Store {
+    private let realm: Realm
+    private let migration: RealmMigrationHandler
 
+    init(migration: RealmMigrationHandler) {
+        self.migration = migration
+        self.realm = migration.realm
+    }
+
+    convenience init() {
+        self.init(migration: RealmMigrationHandler())
+    }
+}
+
+// MARK: - StoreService
+
+extension Store: StoreService {
+    var packagesInput: AnyObserver<[PhrasesPackage]> {
+        return realm.exactUpdateObserver()
+    }
+
+    var packagesOutput: Observable<[PhrasesPackage]> {
+        let packages = Observable.collection(from: realm.objects(PhrasesPackageObject.self))
+        let phrases = Observable.collection(from: realm.objects(PhraseObject.self))
+        let reviews = Observable.collection(from: realm.objects(ReviewObject.self))
+
+        return Observable
+            .combineLatest(packages, phrases, reviews)
+            .map { tuple in
+                return tuple.0.map(PhrasesPackage.init(managedObject:))
+            }
+            .share()
+    }
 }

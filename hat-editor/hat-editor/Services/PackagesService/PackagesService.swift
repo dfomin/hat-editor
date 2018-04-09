@@ -11,5 +11,6 @@ import RxSwift
 protocol PackagesService {
     var refreshPackagesInput: AnyObserver<Void> { get }
 
-    var packagesOutput: Observable<PigowlAPIResult<PackagesList>> { get }
+    var packagesOutput: Observable<[PhrasesPackage]> { get }
+    var packagesErrorsOutput: Observable<Error> { get }
 }
