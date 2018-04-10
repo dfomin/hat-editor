@@ -19,5 +19,7 @@ class PackagesRouter {
 // MARK: - PackagesRouterInternalInput implementation
 
 extension PackagesRouter: PackagesRouterInternalInput {
-
+    func showPackageScene(for package: PhrasesPackage) {
+        // TODO: create & configure module, push to navigation stack
+    }
 }

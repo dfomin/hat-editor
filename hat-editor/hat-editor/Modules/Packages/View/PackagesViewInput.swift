@@ -10,4 +10,5 @@ protocol PackagesViewInput: AnyObject {
     func setupInitialState()
     func endRefreshing()
     func showError(error: Error)
+    func reload()
 }

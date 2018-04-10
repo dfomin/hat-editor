@@ -32,7 +32,8 @@ extension Store: StoreService {
     }
 
     var packagesOutput: Observable<[PhrasesPackage]> {
-        let packages = Observable.collection(from: realm.objects(PhrasesPackageObject.self))
+        let packagesObjects = realm.objects(PhrasesPackageObject.self).sorted(byKeyPath: "id", ascending: true)
+        let packages = Observable.collection(from: packagesObjects)
         let phrases = Observable.collection(from: realm.objects(PhraseObject.self))
         let reviews = Observable.collection(from: realm.objects(ReviewObject.self))
 

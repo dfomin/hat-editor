@@ -10,11 +10,25 @@ class PackagesPresenter: PackagesModuleInput {
     weak var view: PackagesViewInput!
     var interactor: PackagesInteractorInput!
     var router: PackagesRouterInternalInput!
+
+    private let dataProvider = PackageItemsProvider()
 }
 
 // MARK: - PackagesViewOutput
 
 extension PackagesPresenter: PackagesViewOutput {
+    func viewDidAskRowsNumber() -> Int {
+        return dataProvider.data.count
+    }
+
+    func viewDidAskModel(for row: Int) -> PackageItemType {
+        return dataProvider.data[row]
+    }
+
+    func viewDidSelect(row: Int) {
+        router.showPackageScene(for: dataProvider.packages[row])
+    }
+
     func refreshPackagesList() {
         interactor.refreshPackages()
     }
@@ -35,6 +49,8 @@ extension PackagesPresenter: PackagesInteractorOutput {
     }
 
     func didUpdate(packages: [PhrasesPackage]) {
+        dataProvider.update(by: packages)
+        view.reload()
         view.endRefreshing()
     }
 }

@@ -9,4 +9,8 @@
 protocol PackagesViewOutput {
     func viewIsReady()
     func refreshPackagesList()
+
+    func viewDidAskRowsNumber() -> Int
+    func viewDidAskModel(for row: Int) -> PackageItemType
+    func viewDidSelect(row: Int)
 }

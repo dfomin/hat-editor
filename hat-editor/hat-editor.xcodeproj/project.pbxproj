@@ -68,6 +68,11 @@
 		C653F825207D308600AD4EAD /* PhrasesPackageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653F821207D308600AD4EAD /* PhrasesPackageObject.swift */; };
 		C653F826207D308600AD4EAD /* PhraseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653F822207D308600AD4EAD /* PhraseObject.swift */; };
 		C653F828207D31CA00AD4EAD /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653F827207D31CA00AD4EAD /* Realm.swift */; };
+		C653F82E207D393800AD4EAD /* PackageItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653F82D207D393800AD4EAD /* PackageItemType.swift */; };
+		C653F830207D396100AD4EAD /* PackageItemsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653F82F207D396100AD4EAD /* PackageItemsProvider.swift */; };
+		C653F833207D3A5400AD4EAD /* PhrasePackageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653F831207D3A5400AD4EAD /* PhrasePackageCell.swift */; };
+		C653F834207D3A5400AD4EAD /* PhrasePackageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C653F832207D3A5400AD4EAD /* PhrasePackageCell.xib */; };
+		C653F836207D3C5D00AD4EAD /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653F835207D3C5D00AD4EAD /* Reusable.swift */; };
 		C6DB143420732B7200D6ADC4 /* PackageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DB143320732B7200D6ADC4 /* PackageContainer.swift */; };
 		D0837055299EA1A6B149B297 /* RootInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77396291DA184BE39B6FFDEE /* RootInteractorTests.swift */; };
 		F9D916154431F453C65A45F9 /* RootConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF4A2D2FE362DCC3C3907F5 /* RootConfigurator.swift */; };
@@ -143,6 +148,11 @@
 		C653F821207D308600AD4EAD /* PhrasesPackageObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhrasesPackageObject.swift; sourceTree = "<group>"; };
 		C653F822207D308600AD4EAD /* PhraseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhraseObject.swift; sourceTree = "<group>"; };
 		C653F827207D31CA00AD4EAD /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
+		C653F82D207D393800AD4EAD /* PackageItemType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageItemType.swift; sourceTree = "<group>"; };
+		C653F82F207D396100AD4EAD /* PackageItemsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageItemsProvider.swift; sourceTree = "<group>"; };
+		C653F831207D3A5400AD4EAD /* PhrasePackageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasePackageCell.swift; sourceTree = "<group>"; };
+		C653F832207D3A5400AD4EAD /* PhrasePackageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhrasePackageCell.xib; sourceTree = "<group>"; };
+		C653F835207D3C5D00AD4EAD /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		C6DB143320732B7200D6ADC4 /* PackageContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageContainer.swift; sourceTree = "<group>"; };
 		C744AB1134967A11ED86135B /* Pods_hat_editorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hat_editorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B104CA5D3FBDF0B0B76160 /* PackagesRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PackagesRouterInput.swift; sourceTree = "<group>"; };
@@ -237,6 +247,7 @@
 		43A3CC0FA2834C6EEBE27320 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C653F829207D38BD00AD4EAD /* Cells */,
 				EE2B3110D37D69571569E48E /* PackagesViewInput.swift */,
 				E71BD7CEECF3D68A9A0BDD28 /* PackagesViewOutput.swift */,
 				0ED36E2006DDF35B429A5148 /* PackagesViewController.swift */,
@@ -338,6 +349,7 @@
 		AA73D68DD56B2B92592197EC /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				C653F82C207D393800AD4EAD /* Entity */,
 				43A3CC0FA2834C6EEBE27320 /* View */,
 				24DB39D80CB33A6A9E80EE09 /* Presenter */,
 				D2528F5DF75D956F76BCFCF0 /* Interactor */,
@@ -354,6 +366,7 @@
 				C615F9672070E98300B258AB /* UIViewControllerAsNavigator.swift */,
 				C615F97B2071173300B258AB /* UIAlertControllerExt.swift */,
 				C653F813207C638000AD4EAD /* RxOptional.swift */,
+				C653F835207D3C5D00AD4EAD /* Reusable.swift */,
 				C653F827207D31CA00AD4EAD /* Realm.swift */,
 			);
 			path = Extensions;
@@ -514,6 +527,24 @@
 			path = Objects;
 			sourceTree = "<group>";
 		};
+		C653F829207D38BD00AD4EAD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C653F831207D3A5400AD4EAD /* PhrasePackageCell.swift */,
+				C653F832207D3A5400AD4EAD /* PhrasePackageCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		C653F82C207D393800AD4EAD /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				C653F82D207D393800AD4EAD /* PackageItemType.swift */,
+				C653F82F207D396100AD4EAD /* PackageItemsProvider.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		D2528F5DF75D956F76BCFCF0 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -659,6 +690,7 @@
 				C621040C2066BED600FE974A /* Packages.storyboard in Resources */,
 				C62103FD2066AFEF00FE974A /* LaunchScreen.storyboard in Resources */,
 				C62103FF2066AFEF00FE974A /* Assets.xcassets in Resources */,
+				C653F834207D3A5400AD4EAD /* PhrasePackageCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -820,6 +852,7 @@
 				C62104192067994C00FE974A /* PigowlAPI.swift in Sources */,
 				C621040F2066C3B100FE974A /* Context.swift in Sources */,
 				C653F814207C638000AD4EAD /* RxOptional.swift in Sources */,
+				C653F82E207D393800AD4EAD /* PackageItemType.swift in Sources */,
 				38152125EACB8E4DF8228377 /* PackagesViewInput.swift in Sources */,
 				63E94AC3121C2C94FA55561E /* PackagesViewOutput.swift in Sources */,
 				7C955087E71EA655A5C1C38B /* PackagesViewController.swift in Sources */,
@@ -836,10 +869,13 @@
 				0F25EE4E7BC7A139D3524433 /* PackagesRouterOutput.swift in Sources */,
 				BFA104CF7EFCC6291BD73C17 /* PackagesRouter.swift in Sources */,
 				B1340F278B016128FF810D8B /* PackagesConfigurator.swift in Sources */,
+				C653F836207D3C5D00AD4EAD /* Reusable.swift in Sources */,
 				20515672A3314FC1D07964B0 /* RootViewInput.swift in Sources */,
+				C653F830207D396100AD4EAD /* PackageItemsProvider.swift in Sources */,
 				8E76624353B970A0B969C10D /* RootViewOutput.swift in Sources */,
 				45F9854B773AAAC467FF02C9 /* RootViewController.swift in Sources */,
 				1F3FBADB67FE3B0E49793E30 /* RootModuleInput.swift in Sources */,
+				C653F833207D3A5400AD4EAD /* PhrasePackageCell.swift in Sources */,
 				755999BF930FBA8CB39DBE0A /* RootPresenter.swift in Sources */,
 				C653F826207D308600AD4EAD /* PhraseObject.swift in Sources */,
 				C6DB143420732B7200D6ADC4 /* PackageContainer.swift in Sources */,
