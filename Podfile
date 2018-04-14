@@ -1,5 +1,6 @@
 workspace 'hat-editor.xcworkspace'
 platform :ios, '11.0'
+inhibit_all_warnings!
 
 target 'hat-editor' do
   use_frameworks!
