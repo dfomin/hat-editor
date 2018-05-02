@@ -50,7 +50,7 @@ extension PacksViewController: PacksViewInput {
     }
 }
 
-// MARK: - UITableView
+// MARK: - UITableViewDataSource
 
 extension PacksViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -64,6 +64,8 @@ extension PacksViewController: UITableViewDataSource {
         return cell
     }
 }
+
+// MARK: - UITableViewDelegate
 
 extension PacksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

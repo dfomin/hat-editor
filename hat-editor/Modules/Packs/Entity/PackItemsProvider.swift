@@ -9,8 +9,8 @@
 import Foundation
 
 class PackItemsProvider {
-    private (set) var data: [PackItemType] = []
-    private (set) var packs: [PhrasesPack] = []
+    private(set) var data: [PackItemType] = []
+    private(set) var packs: [PhrasesPack] = []
 
     func update(by packs: [PhrasesPack]) {
         self.packs = packs
