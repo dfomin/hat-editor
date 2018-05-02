@@ -19,7 +19,7 @@ enum PigowlAPIError: Error {
 }
 
 class PigowlAPI: ApiService {
-    func allPackages() -> Observable<PigowlAPIResult<PackagesList>> {
+    func allPacks() -> Observable<PigowlAPIResult<PacksList>> {
         let suffix = Settings.readPortComponent + Settings.devPortSuffix + "/getPacks"
         return makeGetRequest(suffix: suffix)
     }

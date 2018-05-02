@@ -16,7 +16,7 @@ class PhraseObject: Object {
 
     let reviews = List<ReviewObject>()
 
-    let linkingPackages = LinkingObjects(fromType: PhrasesPackageObject.self, property: "phrases")
+    let linkingPacks = LinkingObjects(fromType: PhrasesPackObject.self, property: "phrases")
 
     override static func primaryKey() -> String? {
         return "phrase"

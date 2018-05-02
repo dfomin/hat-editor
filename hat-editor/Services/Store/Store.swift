@@ -27,20 +27,20 @@ class Store {
 // MARK: - StoreService
 
 extension Store: StoreService {
-    var packagesInput: AnyObserver<[PhrasesPackage]> {
+    var packsInput: AnyObserver<[PhrasesPack]> {
         return realm.exactUpdateObserver()
     }
 
-    var packagesOutput: Observable<[PhrasesPackage]> {
-        let packagesObjects = realm.objects(PhrasesPackageObject.self).sorted(byKeyPath: "id", ascending: true)
-        let packages = Observable.collection(from: packagesObjects)
+    var packsOutput: Observable<[PhrasesPack]> {
+        let packsObjects = realm.objects(PhrasesPackObject.self).sorted(byKeyPath: "id", ascending: true)
+        let packs = Observable.collection(from: packsObjects)
         let phrases = Observable.collection(from: realm.objects(PhraseObject.self))
         let reviews = Observable.collection(from: realm.objects(ReviewObject.self))
 
         return Observable
-            .combineLatest(packages, phrases, reviews)
+            .combineLatest(packs, phrases, reviews)
             .map { tuple in
-                return tuple.0.map(PhrasesPackage.init(managedObject:))
+                return tuple.0.map(PhrasesPack.init(managedObject:))
             }
             .share()
     }

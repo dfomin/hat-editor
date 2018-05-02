@@ -11,11 +11,11 @@ import Foundation
 class Context: AppContext {
     let apiService: ApiService
     let storeService: StoreService
-    let packagesService: PackagesService
+    let packsService: PacksService
 
     init() {
         apiService = PigowlAPI()
         storeService = Store()
-        packagesService = PackagesServiceImpl(api: apiService, store: storeService)
+        packsService = PacksServiceImpl(api: apiService, store: storeService)
     }
 }

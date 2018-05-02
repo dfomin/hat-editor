@@ -17,6 +17,6 @@ protocol RootRouterInput: AnyObject {
 // MARK: - Routing inside Root
 
 protocol RootRouterInternalInput: RootRouterInput {
-    func presentPackages()
+    func presentPacks()
     func presentLogin() // for future
 }

@@ -19,7 +19,7 @@ extension RootPresenter: RootViewOutput {
         view.setupInitialState()
     }
     func viewDidAppear() {
-        router.presentPackages()
+        router.presentPacks()
     }
 }
 

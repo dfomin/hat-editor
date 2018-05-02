@@ -16,8 +16,8 @@ protocol HasStoreService {
     var storeService: StoreService { get }
 }
 
-protocol HasPackagesService {
-    var packagesService: PackagesService { get }
+protocol HasPacksService {
+    var packsService: PacksService { get }
 }
 
-typealias AppContext = HasApiService & HasStoreService & HasPackagesService
+typealias AppContext = HasApiService & HasStoreService & HasPacksService

@@ -16,7 +16,7 @@ class RootRouter {
     private weak var navigator: BaseNavigator?
     private let context: RootRouterContext
 
-    private weak var packagesInput: PackagesRouterInput?
+    private weak var packsInput: PacksRouterInput?
 
 	init(moduleInput: RootModuleInput, navigator: BaseNavigator, context: RootRouterContext, output: RootRouterOutput?){
 		self.moduleInput = moduleInput
@@ -29,11 +29,11 @@ class RootRouter {
 // MARK: - RootRouterInternalInput implementation
 
 extension RootRouter: RootRouterInternalInput {
-    func presentPackages() {
-        let navigationController: UINavigationController = UIStoryboard.Pigowl.packages.instance.initialViewController()
-        let packagesController = navigationController.viewControllers.first
-        packagesInput = PackagesModuleConfigurator
-            .configureModuleFor(viewInput: packagesController, context: context, output: self)
+    func presentPacks() {
+        let navigationController: UINavigationController = UIStoryboard.Pigowl.packs.instance.initialViewController()
+        let packsController = navigationController.viewControllers.first
+        packsInput = PacksModuleConfigurator
+            .configureModuleFor(viewInput: packsController, context: context, output: self)
         navigator?.present(viewController: navigationController)
     }
 
@@ -42,8 +42,8 @@ extension RootRouter: RootRouterInternalInput {
     }
 }
 
-// MARK: - PackagesRouterOutput
+// MARK: - PacksRouterOutput
 
-extension RootRouter: PackagesRouterOutput {
+extension RootRouter: PacksRouterOutput {
     
 }

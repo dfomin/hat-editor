@@ -1,5 +1,5 @@
 //
-//  PackagesPackagesInteractorTests.swift
+//  PacksInteractorTests.swift
 //  hat-editor
 //
 //  Created by Sivykh Mikhail on 25/03/2018.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class PackagesInteractorTests: XCTestCase {
+class PacksInteractorTests: XCTestCase {
 
     override func setUp() {
         super.setUp()

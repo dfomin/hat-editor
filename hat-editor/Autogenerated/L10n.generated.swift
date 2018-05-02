@@ -16,7 +16,7 @@ internal enum L10n {
   /// Ок
   internal static let ok = L10n.tr("Localizable", "Ok")
   /// Наборы слов
-  internal static let packagesTitle = L10n.tr("Localizable", "Packages_Title")
+  internal static let packsTitle = L10n.tr("Localizable", "Packs_Title")
   /// Повторить
   internal static let `repeat` = L10n.tr("Localizable", "Repeat")
   /// Да

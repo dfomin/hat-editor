@@ -1,5 +1,5 @@
 //
-//  PackagesPackagesConfiguratorTests.swift
+//  PacksConfiguratorTests.swift
 //  hat-editor
 //
 //  Created by Sivykh Mikhail on 25/03/2018.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import hat_editor
 
-class PackagesModuleConfiguratorTests: XCTestCase {
+class PacksModuleConfiguratorTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
@@ -24,26 +24,26 @@ class PackagesModuleConfiguratorTests: XCTestCase {
     func testConfigureModuleForViewController() {
 
         //given
-        let viewController = PackagesViewControllerMock()
+        let viewController = PacksViewControllerMock()
         let context = MockAppContext()
 
         //when
-        _ = PackagesModuleConfigurator
+        _ = PacksModuleConfigurator
             .configureModuleFor(viewInput: viewController, context: context, output: nil)
 
         //then
-        XCTAssertNotNil(viewController.output, "PackagesViewController is nil after configuration")
-        XCTAssertTrue(viewController.output is PackagesPresenter, "output is not PackagesPresenter")
+        XCTAssertNotNil(viewController.output, "PacksViewController is nil after configuration")
+        XCTAssertTrue(viewController.output is PacksPresenter, "output is not PacksPresenter")
 
-        let presenter: PackagesPresenter? = viewController.output as? PackagesPresenter
-        XCTAssertNotNil(presenter?.view, "view in PackagesPresenter is nil after configuration")
-        XCTAssertNotNil(presenter?.router, "router in PackagesPresenter is nil after configuration")
-        XCTAssertTrue(presenter?.router is PackagesRouter, "router is not PackagesRouter")
+        let presenter: PacksPresenter? = viewController.output as? PacksPresenter
+        XCTAssertNotNil(presenter?.view, "view in PacksPresenter is nil after configuration")
+        XCTAssertNotNil(presenter?.router, "router in PacksPresenter is nil after configuration")
+        XCTAssertTrue(presenter?.router is PacksRouter, "router is not PacksRouter")
 
-        let interactor: PackagesInteractor? = presenter?.interactor as? PackagesInteractor
-        XCTAssertNotNil(interactor?.output, "output in PackagesInteractor is nil after configuration")
+        let interactor: PacksInteractor? = presenter?.interactor as? PacksInteractor
+        XCTAssertNotNil(interactor?.output, "output in PacksInteractor is nil after configuration")
     }
 
-    class PackagesViewControllerMock: PackagesViewController {
+    class PacksViewControllerMock: PacksViewController {
     }
 }

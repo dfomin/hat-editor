@@ -11,7 +11,7 @@ import UIKit
 extension UIStoryboard {
     enum Pigowl: String {
         case root = "Root"
-        case packages = "Packages"
+        case packs = "Packs"
 
         var instance: UIStoryboard {
             return UIStoryboard(name: self.rawValue, bundle: Bundle.main)
