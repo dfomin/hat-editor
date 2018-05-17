@@ -8,14 +8,20 @@
 
 import Foundation
 
+extension PhrasesPack: PackItemType {
+
+    // name already exists
+
+    var number: Int {
+        return id
+    }
+
+}
+
 class PackItemsProvider {
-    private(set) var data: [PackItemType] = []
     private(set) var packs: [PhrasesPack] = []
 
     func update(by packs: [PhrasesPack]) {
         self.packs = packs
-        data = packs.map {
-            PackItem(number: $0.id, name: $0.name)
-        }
     }
 }

@@ -18,11 +18,11 @@ class PacksPresenter: PacksModuleInput {
 
 extension PacksPresenter: PacksViewOutput {
     func viewDidAskRowsNumber() -> Int {
-        return dataProvider.data.count
+        return dataProvider.packs.count
     }
 
     func viewDidAskModel(for row: Int) -> PackItemType {
-        return dataProvider.data[row]
+        return dataProvider.packs[row]
     }
 
     func viewDidSelect(row: Int) {
