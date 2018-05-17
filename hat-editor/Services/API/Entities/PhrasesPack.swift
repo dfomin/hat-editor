@@ -13,14 +13,19 @@ struct PhrasesPack: Codable {
     let version: Int
     let language: String
     let name: String
-    let phrases: [Phrase]
+    let phrases: [Phrase]?
 
     init(from decoder: Decoder) throws {
+        print(decoder.codingPath)
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(Int.self, forKey: .id)
         version = try values.decode(Int.self, forKey: .version)
         language = try values.decode(String.self, forKey: .language)
         name = try values.decode(String.self, forKey: .name)
-        phrases = (try? values.decode([Phrase].self, forKey: .phrases)) ?? []
+        phrases = try? values.decode([Phrase].self, forKey: .phrases)
     }
+}
+
+extension PhrasesPack {
+
 }

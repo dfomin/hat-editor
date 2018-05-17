@@ -35,7 +35,7 @@ extension Phrase: Decodable {
         var reviewsResult: [Review] = []
         for pair in reviewsDictionary {
             if let status = ReviewStatus(rawValue: pair.value) {
-                reviewsResult.append(Review(author: pair.key, phrase: phrase, status: status))
+                reviewsResult.append(Review(author: pair.key, status: status))
             }
         }
         reviews = reviewsResult
