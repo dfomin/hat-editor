@@ -10,7 +10,11 @@ import RxSwift
 
 protocol PacksService {
     var refreshPacksInput: AnyObserver<Void> { get }
+    var downloadPackInput: AnyObserver<Void> { get }
 
     var packsOutput: Observable<[PhrasesPack]> { get }
-    var packsErrorsOutput: Observable<Error> { get }
+
+    var errorOutput: Observable<Error> { get }
+
+    func downloadPack(with id: Int)
 }

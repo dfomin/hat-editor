@@ -9,7 +9,7 @@
 import RxSwift
 
 protocol StoreService {
-    var packsInput: AnyObserver<[PhrasesPack]> {get}
+    var packsInput: AnyObserver<[PhrasesPack]> { get }
 
-    var packsOutput: Observable<[PhrasesPack]> {get}
+    var packsOutput: Observable<[PhrasesPack]> { get }
 }

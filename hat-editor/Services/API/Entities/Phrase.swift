@@ -12,7 +12,7 @@ struct Phrase {
     let phrase: String
     let complexity: Double
     let description: String
-    let reviews: [Review]
+    var reviews: [Review]
 }
 
 extension Phrase {
@@ -31,14 +31,15 @@ extension Phrase: Decodable {
         complexity = try values.decode(Double.self, forKey: .complexity)
         description = try values.decode(String.self, forKey: .description)
 
-        let reviewsDictionary = try values.decode([String: Int].self, forKey: .reviews)
+        /*let reviewsDictionary = try values.decode([String: Int].self, forKey: .reviews)
         var reviewsResult: [Review] = []
         for pair in reviewsDictionary {
             if let status = ReviewStatus(rawValue: pair.value) {
                 reviewsResult.append(Review(author: pair.key, status: status))
             }
         }
-        reviews = reviewsResult
+        reviews = reviewsResult*/
+        reviews = []
     }
 }
 

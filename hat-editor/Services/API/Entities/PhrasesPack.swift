@@ -16,7 +16,6 @@ struct PhrasesPack: Codable {
     let phrases: [Phrase]?
 
     init(from decoder: Decoder) throws {
-        print(decoder.codingPath)
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(Int.self, forKey: .id)
         version = try values.decode(Int.self, forKey: .version)
@@ -24,8 +23,4 @@ struct PhrasesPack: Codable {
         name = try values.decode(String.self, forKey: .name)
         phrases = try? values.decode([Phrase].self, forKey: .phrases)
     }
-}
-
-extension PhrasesPack {
-
 }

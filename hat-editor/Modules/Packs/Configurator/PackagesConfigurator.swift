@@ -27,7 +27,7 @@ class PacksModuleConfigurator {
 
         let presenter = PacksPresenter()
         let interactor = PacksInteractor(context: context)
-        let router = PacksRouter(moduleInput: presenter, output: output)
+        let router = PacksRouter(moduleInput: presenter, navigator: viewController, context: context, output: output)
 
         presenter.view = viewController
         presenter.router = router

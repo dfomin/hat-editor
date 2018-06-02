@@ -33,7 +33,7 @@ extension PacksInteractor: PacksInteractorInput {
             self.output.didUpdate(packs: result)
         }).disposed(by: bag)
 
-        context.packsService.packsErrorsOutput.subscribe(onNext: { [unowned self] error in
+        context.packsService.errorOutput.subscribe(onNext: { [unowned self] error in
             self.output.didFail(with: error)
         }).disposed(by: bag)
     }

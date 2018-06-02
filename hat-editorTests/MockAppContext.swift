@@ -10,5 +10,13 @@ import Foundation
 @testable import hat_editor
 
 class MockAppContext: AppContext {
-    
+    let apiService: ApiService
+    let packsService: PacksService
+    let storeService: StoreService
+
+    init() {
+        apiService = PigowlAPI()
+        storeService = Store()
+        packsService = PacksServiceImpl(api: apiService, store: storeService)
+    }
 }

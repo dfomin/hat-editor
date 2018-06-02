@@ -9,8 +9,8 @@
 import Foundation
 
 protocol PackItemType {
-    var number: Int {get}
-    var name: String {get}
+    var number: Int { get }
+    var name: String { get }
 }
 
 struct PackItem: PackItemType {

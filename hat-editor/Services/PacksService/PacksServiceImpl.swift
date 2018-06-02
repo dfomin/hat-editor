@@ -14,6 +14,7 @@ class PacksServiceImpl {
     private let store: StoreService
 
     private let refreshPacksSubject = PublishSubject<Void>()
+    private let downloadPackSubject = PublishSubject<Void>()
     private let errors = PublishSubject<Error>()
 
     private let bag = DisposeBag()
@@ -41,7 +42,7 @@ class PacksServiceImpl {
         request
             .flatMap { result -> Observable<[PhrasesPack]> in
                 if case .success(let value) = result {
-                    return .just(value.packs.map { $0.pack } )
+                    return .just(value)
                 }
                 return .empty()
             }
@@ -55,11 +56,43 @@ extension PacksServiceImpl: PacksService {
         return refreshPacksSubject.asObserver()
     }
 
-    var packsErrorsOutput: Observable<Error> {
-        return errors.asObservable()
+    var downloadPackInput: AnyObserver<Void> {
+        return downloadPackSubject.asObserver()
     }
 
     var packsOutput: Observable<[PhrasesPack]> {
         return store.packsOutput
+    }
+
+    var errorOutput: Observable<Error> {
+        return errors.asObservable()
+    }
+
+    func downloadPack(with id: Int) {
+        let request = downloadPackSubject
+            .flatMap { [unowned self] _ in
+                return self.api.pack(id: id)
+            }
+            .share()
+
+        request
+            .flatMap { result -> Observable<Error> in
+                if case .error(let error) = result {
+                    return .just(error)
+                }
+                return .empty()
+            }
+            .bind(to: errors)
+            .disposed(by: bag)
+
+        request
+            .flatMap { result -> Observable<[PhrasesPack]> in
+                if case .success(let value) = result {
+                    return .just([value])
+                }
+                return .empty()
+            }
+            .bind(to: store.packsInput)
+            .disposed(by: bag)
     }
 }
