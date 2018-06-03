@@ -40,8 +40,7 @@ extension EditPackInteractor: EditPackInteractorInput {
 
     func set(pack: PhrasesPack) {
         self.pack = pack
-        context.packsService.downloadPack(with: pack.id)
-        context.packsService.downloadPackInput.onNext(())
+        context.packsService.downloadPackInput.onNext(pack.id)
     }
 
     func subscribe() {

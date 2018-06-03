@@ -43,4 +43,18 @@ extension Realm {
             }
         }
     }
+
+    func exactUpdateObserver<T: Storable>() -> AnyObserver<T> {
+        return AnyObserver<T> { [unowned self] event in
+            if case .next(let entity) = event {
+                do {
+                    try self.safeWrite {
+                        self.add(entity.managedObject, update: true)
+                    }
+                } catch let error {
+                    print(error)
+                }
+            }
+        }
+    }
 }

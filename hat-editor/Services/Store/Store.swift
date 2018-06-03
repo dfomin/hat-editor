@@ -27,6 +27,10 @@ class Store {
 // MARK: - StoreService
 
 extension Store: StoreService {
+    var packInput: AnyObserver<PhrasesPack> {
+        return realm.exactUpdateObserver()
+    }
+
     var packsInput: AnyObserver<[PhrasesPack]> {
         return realm.exactUpdateObserver()
     }

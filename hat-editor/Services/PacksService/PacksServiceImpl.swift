@@ -14,7 +14,7 @@ class PacksServiceImpl {
     private let store: StoreService
 
     private let refreshPacksSubject = PublishSubject<Void>()
-    private let downloadPackSubject = PublishSubject<Void>()
+    private let downloadPackSubject = PublishSubject<Int>()
     private let errors = PublishSubject<Error>()
 
     private let bag = DisposeBag()
@@ -48,29 +48,13 @@ class PacksServiceImpl {
             }
             .bind(to: store.packsInput)
             .disposed(by: bag)
-    }
-}
 
-extension PacksServiceImpl: PacksService {
-    var refreshPacksInput: AnyObserver<Void> {
-        return refreshPacksSubject.asObserver()
+        initPackDownloading()
     }
 
-    var downloadPackInput: AnyObserver<Void> {
-        return downloadPackSubject.asObserver()
-    }
-
-    var packsOutput: Observable<[PhrasesPack]> {
-        return store.packsOutput
-    }
-
-    var errorOutput: Observable<Error> {
-        return errors.asObservable()
-    }
-
-    func downloadPack(with id: Int) {
+    func initPackDownloading() {
         let request = downloadPackSubject
-            .flatMap { [unowned self] _ in
+            .flatMap { [unowned self] id in
                 return self.api.pack(id: id)
             }
             .share()
@@ -86,13 +70,31 @@ extension PacksServiceImpl: PacksService {
             .disposed(by: bag)
 
         request
-            .flatMap { result -> Observable<[PhrasesPack]> in
+            .flatMap { result -> Observable<PhrasesPack> in
                 if case .success(let value) = result {
-                    return .just([value])
+                    return .just(value)
                 }
                 return .empty()
             }
-            .bind(to: store.packsInput)
+            .bind(to: store.packInput)
             .disposed(by: bag)
+    }
+}
+
+extension PacksServiceImpl: PacksService {
+    var refreshPacksInput: AnyObserver<Void> {
+        return refreshPacksSubject.asObserver()
+    }
+
+    var packsOutput: Observable<[PhrasesPack]> {
+        return store.packsOutput
+    }
+
+    var errorOutput: Observable<Error> {
+        return errors.asObservable()
+    }
+
+    var downloadPackInput: AnyObserver<Int> {
+        return downloadPackSubject.asObserver()
     }
 }

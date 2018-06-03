@@ -8,22 +8,12 @@
 
 import Foundation
 
-struct Review {
+struct Review: Codable {
     let author: String
     let status: ReviewStatus
 }
 
-extension Review {
-    init?(dictionary: [String: String]) {
-        guard let authorValue = dictionary["author"] else { return nil }
-        guard let statusValue = dictionary["status"], let reviewStatusValue = ReviewStatus(rawValue: statusValue) else { return nil }
-
-        author = authorValue
-        status = reviewStatusValue
-    }
-}
-
-enum ReviewStatus: String {
+enum ReviewStatus: String, Codable {
     case unknown
     case delete
     case edit
