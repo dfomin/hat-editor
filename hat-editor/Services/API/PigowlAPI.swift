@@ -42,6 +42,13 @@ private extension PigowlAPI {
                     let value = try JSONDecoder().decode(T.self, from: arg.1)
                     return Observable.just(PigowlAPIResult.success(value))
                 } catch {
+                    if let body = String(data: arg.1, encoding: .utf8) {
+                        let type = String(describing: T.self)
+                        print("-------------------------------------------------------------------------")
+                        print("An error occured during the \(type) type parsing from the following data:")
+                        print(body)
+                        print("-------------------------------------------------------------------------")
+                    }
                     return Observable.just(PigowlAPIResult.error(error))
                 }
             }).catchError({ Observable.just(PigowlAPIResult.error($0)) })
