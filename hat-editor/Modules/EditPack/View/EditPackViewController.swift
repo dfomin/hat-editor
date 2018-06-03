@@ -11,6 +11,7 @@ import UIKit
 class EditPackViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var packTitleLabel: UILabel!
 
     var output: EditPackViewOutput!
 
@@ -24,7 +25,8 @@ class EditPackViewController: UIViewController {
 // MARK: - EditPackViewInput
 
 extension EditPackViewController: EditPackViewInput {
-    func setupInitialState() {
+    func setPack(title: String) {
+        packTitleLabel.text = title
     }
 
     func showError(error: Error) {

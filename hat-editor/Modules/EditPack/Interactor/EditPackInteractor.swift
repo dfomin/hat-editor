@@ -16,7 +16,7 @@ class EditPackInteractor {
     private let context: EditPackInteractorContext
     private let bag = DisposeBag()
 
-    private var pack: PhrasesPack?
+    private var pack: PhrasesPack!
 
     init(context: EditPackInteractorContext) {
         self.context = context
@@ -26,12 +26,16 @@ class EditPackInteractor {
 // MARK: - EditPackInteractorInput
 
 extension EditPackInteractor: EditPackInteractorInput {
+    var packTitle: String {
+        return pack.name
+    }
+
     var numberOfPhrases: Int {
-        return pack?.phrases?.count ?? 0
+        return pack.phrases?.count ?? 0
     }
 
     func phrase(at index: Int) -> Phrase {
-        return Phrase(phrase: "qwe", complexity: 0, description: "qwe", reviews: [])
+        return pack.phrases![index]
     }
 
     func set(pack: PhrasesPack) {
@@ -42,7 +46,10 @@ extension EditPackInteractor: EditPackInteractorInput {
 
     func subscribe() {
         context.packsService.packsOutput.subscribe(onNext: { [unowned self] result in
-            self.output.didUpdatePack()
+            if let updatedPack = result.filter({ $0.id == self.pack.id }).first {
+                self.pack = updatedPack
+                self.output.didUpdatePack()
+            }
         }).disposed(by: bag)
 
         context.packsService.errorOutput.subscribe(onNext: { [unowned self] error in

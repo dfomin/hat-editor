@@ -9,6 +9,8 @@
 import Foundation
 
 protocol EditPackInteractorInput {
+    var packTitle: String { get }
+
     var numberOfPhrases: Int { get }
 
     func phrase(at index: Int) -> Phrase

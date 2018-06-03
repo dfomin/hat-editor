@@ -22,7 +22,7 @@ class EditPackPresenter: EditPackModuleInput {
 
 extension EditPackPresenter: EditPackViewOutput {
     func viewIsReady() {
-        view.setupInitialState()
+        view.setPack(title: interactor.packTitle)
 
         interactor.subscribe()
     }

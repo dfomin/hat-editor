@@ -31,15 +31,15 @@ extension Phrase: Decodable {
         complexity = try values.decode(Double.self, forKey: .complexity)
         description = try values.decode(String.self, forKey: .description)
 
-        /*let reviewsDictionary = try values.decode([String: Int].self, forKey: .reviews)
-        var reviewsResult: [Review] = []
-        for pair in reviewsDictionary {
-            if let status = ReviewStatus(rawValue: pair.value) {
-                reviewsResult.append(Review(author: pair.key, status: status))
+        var reviewsArray = try values.nestedUnkeyedContainer(forKey: .reviews)
+        var result = [Review]()
+        while !reviewsArray.isAtEnd {
+            let review = try reviewsArray.decode([String: String].self)
+            if let statusReview = Review(dictionary: review) {
+                result.append(statusReview)
             }
         }
-        reviews = reviewsResult*/
-        reviews = []
+        reviews = result
     }
 }
 
@@ -50,7 +50,7 @@ extension Phrase: Encodable {
         try container.encode(complexity, forKey: .complexity)
         try container.encode(description, forKey: .description)
 
-        var reviewsDictionary: [String: Int] = [:]
+        var reviewsDictionary: [String: String] = [:]
         for review in reviews {
             reviewsDictionary[review.author] = review.status.rawValue
         }

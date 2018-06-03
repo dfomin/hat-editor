@@ -13,6 +13,19 @@ struct Review {
     let status: ReviewStatus
 }
 
-enum ReviewStatus: Int {
-    case rejected = 0, candidate, approved
+extension Review {
+    init?(dictionary: [String: String]) {
+        guard let authorValue = dictionary["author"] else { return nil }
+        guard let statusValue = dictionary["status"], let reviewStatusValue = ReviewStatus(rawValue: statusValue) else { return nil }
+
+        author = authorValue
+        status = reviewStatusValue
+    }
+}
+
+enum ReviewStatus: String {
+    case unknown
+    case delete
+    case edit
+    case accept
 }

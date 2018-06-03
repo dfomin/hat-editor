@@ -11,7 +11,7 @@ import RealmSwift
 
 class ReviewObject: Object {
     @objc dynamic var author: String = ""
-    @objc dynamic var status: Int = 0
+    @objc dynamic var status: String = ""
 }
 
 extension Review: Storable {

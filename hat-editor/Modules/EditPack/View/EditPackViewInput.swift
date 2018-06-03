@@ -7,7 +7,7 @@
 //
 
 protocol EditPackViewInput: AnyObject {
-    func setupInitialState()
+    func setPack(title: String)
     func showError(error: Error)
     func reload()
 }
