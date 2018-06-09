@@ -12,10 +12,12 @@ class Context: AppContext {
     let apiService: ApiService
     let storeService: StoreService
     let packsService: PacksService
+    let loginService: LoginService
 
     init() {
         apiService = PigowlAPI()
         storeService = Store()
         packsService = PacksServiceImpl(api: apiService, store: storeService)
+        loginService = LoginServiceImpl(api: apiService)
     }
 }

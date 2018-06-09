@@ -20,4 +20,8 @@ protocol HasPacksService {
     var packsService: PacksService { get }
 }
 
-typealias AppContext = HasApiService & HasStoreService & HasPacksService
+protocol HasLoginService {
+    var loginService: LoginService { get }
+}
+
+typealias AppContext = HasApiService & HasStoreService & HasPacksService & HasLoginService

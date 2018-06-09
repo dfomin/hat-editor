@@ -18,12 +18,20 @@ extension RootPresenter: RootViewOutput {
     func viewIsReady() {
         view.setupInitialState()
     }
+
     func viewDidAppear() {
-        router.presentPacks()
+        interactor.requestServerToken()
     }
 }
 
 // MARK: - RootInteractorOutput
 
 extension RootPresenter: RootInteractorOutput {
+    func didReceiveServerToken(result: Bool) {
+        if result {
+            router.presentPacks()
+        } else {
+            view.showNoTokenError()
+        }
+    }
 }

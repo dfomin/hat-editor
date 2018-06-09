@@ -9,6 +9,8 @@
 import RxSwift
 
 protocol ApiService {
+    func login() -> Observable<PigowlAPIResult<String>>
+
     func allPacks() -> Observable<PigowlAPIResult<[PhrasesPack]>>
     func pack(id: Int) -> Observable<PigowlAPIResult<PhrasesPack>>
 }

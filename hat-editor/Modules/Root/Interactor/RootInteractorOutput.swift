@@ -9,5 +9,5 @@
 import Foundation
 
 protocol RootInteractorOutput: AnyObject {
-
+    func didReceiveServerToken(result: Bool)
 }

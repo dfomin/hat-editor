@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		06C309243678DA004FE55B5D /* EditPackInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F384CBB74BF378A19EB6BA3E /* EditPackInteractorInput.swift */; };
 		070DFDA120B9A2D50041386F /* EditPack.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 070DFDA020B9A2D50041386F /* EditPack.storyboard */; };
+		0794537020CC4C2900165194 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0794536F20CC4C2900165194 /* LoginService.swift */; };
+		0794537220CC4C6200165194 /* LoginServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0794537120CC4C6200165194 /* LoginServiceImpl.swift */; };
 		07BB01E420C2C69F00E45405 /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BB01E320C2C69F00E45405 /* APITests.swift */; };
 		07E6705420C31DA6000BC754 /* PhraseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E6705320C31DA6000BC754 /* PhraseTableViewCell.swift */; };
 		0802CF94EDCE8365512F4AC3 /* PacksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B6AF4FE800C0DB98271C4C /* PacksPresenter.swift */; };
@@ -107,6 +109,8 @@
 
 /* Begin PBXFileReference section */
 		070DFDA020B9A2D50041386F /* EditPack.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditPack.storyboard; sourceTree = "<group>"; };
+		0794536F20CC4C2900165194 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		0794537120CC4C6200165194 /* LoginServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceImpl.swift; sourceTree = "<group>"; };
 		07BB01E320C2C69F00E45405 /* APITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
 		07E6705320C31DA6000BC754 /* PhraseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseTableViewCell.swift; sourceTree = "<group>"; };
 		09B6AF4FE800C0DB98271C4C /* PacksPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PacksPresenter.swift; sourceTree = "<group>"; };
@@ -238,6 +242,15 @@
 				11266DA18802B38A4E9C2756 /* Presenter */,
 			);
 			path = EditPack;
+			sourceTree = "<group>";
+		};
+		0794536E20CC4C1100165194 /* LoginService */ = {
+			isa = PBXGroup;
+			children = (
+				0794536F20CC4C2900165194 /* LoginService.swift */,
+				0794537120CC4C6200165194 /* LoginServiceImpl.swift */,
+			);
+			path = LoginService;
 			sourceTree = "<group>";
 		};
 		07BB01E120C2C69F00E45405 /* Services */ = {
@@ -603,6 +616,7 @@
 		C62103FC2066AFEE00FE974A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				0794536E20CC4C1100165194 /* LoginService */,
 				C615F97220710CA400B258AB /* PacksService */,
 				C615F97120710CA400B258AB /* Store */,
 				C62104142066C99200FE974A /* API */,
@@ -981,6 +995,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C62104012066AFEF00FE974A /* AppDelegate.swift in Sources */,
+				0794537220CC4C6200165194 /* LoginServiceImpl.swift in Sources */,
 				C6179C78207B385B008DF549 /* RealmMigrationHandler.swift in Sources */,
 				C653F825207D308600AD4EAD /* PhrasesPackObject.swift in Sources */,
 				C615F9662070E8B300B258AB /* UIStoryboardExt.swift in Sources */,
@@ -996,6 +1011,7 @@
 				C615F97420710CC100B258AB /* PacksService.swift in Sources */,
 				C62104192067994C00FE974A /* PigowlAPI.swift in Sources */,
 				C621040F2066C3B100FE974A /* Context.swift in Sources */,
+				0794537020CC4C2900165194 /* LoginService.swift in Sources */,
 				C653F814207C638000AD4EAD /* RxOptional.swift in Sources */,
 				C653F82E207D393800AD4EAD /* PackItemType.swift in Sources */,
 				38152125EACB8E4DF8228377 /* PacksViewInput.swift in Sources */,
