@@ -32,7 +32,7 @@ extension RootInteractor: RootInteractorInput {
             context.loginService.loginInput.onNext(())
 
             context.loginService.loginOutput.subscribe(onNext: { result in
-                Settings.token = result
+                Settings.token = result.token
                 self.output.didReceiveServerToken(result: true)
             }).disposed(by: bag)
 

@@ -12,7 +12,7 @@ class LoginServiceImpl {
     private let api: ApiService
 
     private let loginSubjectInput = PublishSubject<Void>()
-    private let loginSubjectOutput = PublishSubject<String>()
+    private let loginSubjectOutput = PublishSubject<ApiToken>()
     private let errors = PublishSubject<Error>()
 
     private let bag = DisposeBag()
@@ -37,7 +37,7 @@ class LoginServiceImpl {
             .disposed(by: bag)
 
         request
-            .flatMap { result -> Observable<String> in
+            .flatMap { result -> Observable<ApiToken> in
                 if case .success(let value) = result {
                     return .just(value)
                 }
@@ -53,7 +53,7 @@ extension LoginServiceImpl: LoginService {
         return loginSubjectInput.asObserver()
     }
 
-    var loginOutput: Observable<String> {
+    var loginOutput: Observable<ApiToken> {
         return loginSubjectOutput.asObservable()
     }
 

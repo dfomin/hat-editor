@@ -17,10 +17,11 @@ enum PigowlAPIResult<T> {
 
 enum PigowlAPIError: Error {
     case pathIsNotURL
+    case noToken
 }
 
 class PigowlAPI: ApiService {
-    func login() -> Observable<PigowlAPIResult<String>> {
+    func login() -> Observable<PigowlAPIResult<ApiToken>> {
         let suffix = "/accounts/login"
         let params = ["name": "fomin", "password": "rcNxfkTAQ4TH"]
         return makePostRequest(suffix: suffix, params: params)
@@ -42,8 +43,15 @@ private extension PigowlAPI {
         guard let url = URL(string: Settings.serverURLPrefix + suffix) else {
             return Observable.just(PigowlAPIResult.error(PigowlAPIError.pathIsNotURL))
         }
+
+        guard let token = Settings.token else {
+            return Observable.just(PigowlAPIResult.error(PigowlAPIError.noToken))
+        }
+
+        let headers = ["authorization": "bearer " + token]
+
         return RxAlamofire
-            .requestData(.get, url)
+            .requestData(.get, url, headers: headers)
             .flatMap({ arg -> Observable<PigowlAPIResult<T>> in
                 do {
                     let value = try JSONDecoder().decode(T.self, from: arg.1)
@@ -61,22 +69,19 @@ private extension PigowlAPI {
             }).catchError({ Observable.just(PigowlAPIResult.error($0)) })
     }
 
-    func makePostRequest(suffix: String, params: [String: String]? = nil) -> Observable<PigowlAPIResult<String>> {
+    func makePostRequest<T: Codable>(suffix: String, params: [String: String]? = nil) -> Observable<PigowlAPIResult<T>> {
         guard let url = URL(string: Settings.serverURLPrefix + suffix) else {
             return Observable.just(PigowlAPIResult.error(PigowlAPIError.pathIsNotURL))
         }
         return RxAlamofire
             .requestData(.post, url, parameters: params, encoding: JSONEncoding.default)
-            .flatMap({ arg -> Observable<PigowlAPIResult<String>> in
+            .flatMap({ arg -> Observable<PigowlAPIResult<T>> in
                 do {
-                    if let data = String(data: arg.1, encoding: String.Encoding.utf8) {
-                        return Observable.just(PigowlAPIResult.success(data))
-                    } else {
-                        throw PigowlAPIError.pathIsNotURL
-                    }
+                    let value = try JSONDecoder().decode(T.self, from: arg.1)
+                    return Observable.just(PigowlAPIResult.success(value))
                 } catch {
                     if let body = String(data: arg.1, encoding: .utf8) {
-                        let type = "String"
+                        let type = String(describing: T.self)
                         print("-------------------------------------------------------------------------")
                         print("An error occured during the \(type) type parsing from the following data:")
                         print(body)
