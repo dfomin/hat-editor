@@ -20,18 +20,15 @@ extension RootPresenter: RootViewOutput {
     }
 
     func viewDidAppear() {
-        interactor.requestServerToken()
+        if interactor.checkServerToken() {
+            router.presentPacks()
+        } else {
+            router.presentLogin()
+        }
     }
 }
 
 // MARK: - RootInteractorOutput
 
 extension RootPresenter: RootInteractorOutput {
-    func didReceiveServerToken(result: Bool) {
-        if result {
-            router.presentPacks()
-        } else {
-            view.showNoTokenError()
-        }
-    }
 }

@@ -9,7 +9,7 @@
 import RxSwift
 
 protocol LoginService {
-    var loginInput: AnyObserver<Void> { get }
+    var loginInput: AnyObserver<(String, String)> { get }
 
     var loginOutput: Observable<ApiToken> { get }
     var errorOutput: Observable<Error> { get }

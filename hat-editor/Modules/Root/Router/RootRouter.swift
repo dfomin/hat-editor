@@ -38,7 +38,9 @@ extension RootRouter: RootRouterInternalInput {
     }
 
     func presentLogin() {
-        // complete in the future if needed
+        let loginController = UIStoryboard.Pigowl.login.instance.initialViewController()
+        LoginModuleConfigurator.configureModuleFor(viewInput: loginController, context: context, output: nil)
+        navigator?.present(viewController: loginController)
     }
 }
 

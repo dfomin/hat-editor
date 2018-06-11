@@ -8,5 +8,4 @@
 
 protocol RootViewInput: AnyObject {
     func setupInitialState()
-    func showNoTokenError()
 }

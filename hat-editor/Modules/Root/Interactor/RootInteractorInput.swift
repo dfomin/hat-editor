@@ -9,5 +9,5 @@
 import Foundation
 
 protocol RootInteractorInput {
-    func requestServerToken()
+    func checkServerToken() -> Bool
 }

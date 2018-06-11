@@ -11,7 +11,7 @@ import RxSwift
 class LoginServiceImpl {
     private let api: ApiService
 
-    private let loginSubjectInput = PublishSubject<Void>()
+    private let loginSubjectInput = PublishSubject<(String, String)>()
     private let loginSubjectOutput = PublishSubject<ApiToken>()
     private let errors = PublishSubject<Error>()
 
@@ -21,8 +21,8 @@ class LoginServiceImpl {
         self.api = api
 
         let request = loginSubjectInput
-            .flatMap { [unowned self] _ in
-                return self.api.login()
+            .flatMap { [unowned self] loginInfo in
+                return self.api.login(username: loginInfo.0, password: loginInfo.1)
             }
             .share()
 
@@ -49,7 +49,7 @@ class LoginServiceImpl {
 }
 
 extension LoginServiceImpl: LoginService {
-    var loginInput: AnyObserver<Void> {
+    var loginInput: AnyObserver<(String, String)> {
         return loginSubjectInput.asObserver()
     }
 

@@ -12,14 +12,19 @@
 		0794537020CC4C2900165194 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0794536F20CC4C2900165194 /* LoginService.swift */; };
 		0794537220CC4C6200165194 /* LoginServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0794537120CC4C6200165194 /* LoginServiceImpl.swift */; };
 		07BB01E420C2C69F00E45405 /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BB01E320C2C69F00E45405 /* APITests.swift */; };
+		07C0D0D920CE999500823AE4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07C0D0D820CE999500823AE4 /* Login.storyboard */; };
 		07E6705420C31DA6000BC754 /* PhraseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E6705320C31DA6000BC754 /* PhraseTableViewCell.swift */; };
 		0802CF94EDCE8365512F4AC3 /* PacksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B6AF4FE800C0DB98271C4C /* PacksPresenter.swift */; };
 		0C1D6D0243898126320692ED /* PacksModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDCB5A82ECFC01D40B79E11 /* PacksModuleInput.swift */; };
 		0D9E0B70BE7943FF339E998C /* RootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8307B54C5D1C921A4869C7ED /* RootInteractor.swift */; };
 		0F25EE4E7BC7A139D3524433 /* PacksRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4B71737B5CC100C118DE4A /* PacksRouterOutput.swift */; };
+		1041F323F800F96EE8F750C1 /* LoginModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E77E4EAFAFA72674EBAEAB7 /* LoginModuleInput.swift */; };
+		1166F8540678EBFE71AC0421 /* LoginViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168F1DAE7C43A99B4C95DE53 /* LoginViewInput.swift */; };
+		1202F2FA2A41D37E78129193 /* LoginViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D646B01C74E0963A5EE5B93F /* LoginViewOutput.swift */; };
 		1B89E7ACE89E19FED2238517 /* PackagesPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62EFF9E508EB27704D00C9E /* PackagesPresenterTests.swift */; };
 		1F3FBADB67FE3B0E49793E30 /* RootModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D09B6E3CD87D9D888B33B /* RootModuleInput.swift */; };
 		20515672A3314FC1D07964B0 /* RootViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97AF791592CA1B5592F5EEC /* RootViewInput.swift */; };
+		2B9363BB78BD563AE62CDC95 /* LoginInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB1DB4FC1B398EA037FBFC0 /* LoginInteractorInput.swift */; };
 		2D63DEF1253460B0D1F7053D /* EditPackConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54D310F2DC0E59FEAC47B3C /* EditPackConfigurator.swift */; };
 		36C63FC90153834B2B7D80DE /* RootRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22966A2A4D8925DB0812F80B /* RootRouterOutput.swift */; };
 		38152125EACB8E4DF8228377 /* PacksViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2B3110D37D69571569E48E /* PacksViewInput.swift */; };
@@ -27,9 +32,14 @@
 		3EBAA8584E974517CA8F581A /* EditPackConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BB758760A750DFA9FC2947 /* EditPackConfiguratorTests.swift */; };
 		4171668048E94072A36A856E /* PacksInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B0BDDA98EF9307BC1EDB6 /* PacksInteractor.swift */; };
 		45F9854B773AAAC467FF02C9 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2ED0C286D73177746A67216 /* RootViewController.swift */; };
+		4B7EA41CCAB29B3DB392FACD /* LoginInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AA614FD1B182F50877F4E8 /* LoginInteractorTests.swift */; };
+		55538DCB6C47DB60A2F96B65 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF01AE672776A7663B48D62 /* LoginViewController.swift */; };
+		567F83658E4929FD2BFCA9D0 /* LoginInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C92C96CAB6FFF451C82A59E /* LoginInteractorOutput.swift */; };
+		5771F0561CF9F0661B66DCFB /* LoginConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E3CC00779324440AF09331 /* LoginConfigurator.swift */; };
 		5BBF609D9928DFCFFFDD192D /* Pods_hat_editor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D8D6B66DD6D16A0F599038E /* Pods_hat_editor.framework */; };
 		5D8E3B4B604F86EA75382F4F /* EditPackModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A92BFE797A7FCF2EE868C4 /* EditPackModuleInput.swift */; };
 		63E94AC3121C2C94FA55561E /* PacksViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71BD7CEECF3D68A9A0BDD28 /* PacksViewOutput.swift */; };
+		678187FD017646D7198A6D9E /* LoginRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B652B19CAE6C5E84D2762 /* LoginRouterOutput.swift */; };
 		720F7F8A52167C1DFCAA5EB3 /* RootInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B43E95E04C4B023532D60 /* RootInteractorOutput.swift */; };
 		7441A3A7BAFDBE9635F9E5CD /* EditPackPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27780492D58D25ED318B4405 /* EditPackPresenter.swift */; };
 		755999BF930FBA8CB39DBE0A /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B6E1729AE4A1EC0051CC77 /* RootPresenter.swift */; };
@@ -41,9 +51,11 @@
 		8CF6477B8519D9B540B22F60 /* Pods_hat_editorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744AB1134967A11ED86135B /* Pods_hat_editorTests.framework */; };
 		8E76624353B970A0B969C10D /* RootViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC9C5F4D57D9D7980FBD73A /* RootViewOutput.swift */; };
 		9F6DD041605030FCBB4D7D86 /* PacksInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEA3203846E837CA10B2F68 /* PacksInteractorOutput.swift */; };
+		A137B51A4DA2F7330413932F /* LoginConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A09EE30594EABA2F999924A /* LoginConfiguratorTests.swift */; };
 		A3F290C74676BCB067D95538 /* PacksRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B104CA5D3FBDF0B0B76160 /* PacksRouterInput.swift */; };
 		A4065326325C4827456E560B /* RootInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6446CA82F634DB5CA70C7DE5 /* RootInteractorInput.swift */; };
-		B1340F278B016128FF810D8B /* PackagesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96AD5D85F8784591C203E7 /* PackagesConfigurator.swift */; };
+		AAD949A65B8E4EF07B9C9E99 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4815C9855823424A16B74E56 /* LoginRouter.swift */; };
+		B1340F278B016128FF810D8B /* PacksConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96AD5D85F8784591C203E7 /* PacksConfigurator.swift */; };
 		B82A0B8856636438F7836D3C /* EditPackInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECAF235EB6B870C5B859808 /* EditPackInteractorTests.swift */; };
 		B95A8E033C138A737510F186 /* RootConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A286FDF80EAC8C3816151B /* RootConfiguratorTests.swift */; };
 		BEC82A5E96A99DB8F9F69821 /* PackagesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7A07BC451D2645D8C8DB29 /* PackagesInteractorTests.swift */; };
@@ -91,8 +103,12 @@
 		D2D371241230FD711587255E /* EditPackInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF884D2C1863492A1643A5E /* EditPackInteractor.swift */; };
 		DDFF5FA8314EE90A1638B31A /* EditPackViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272AE3A40D7F395A7CD59CC3 /* EditPackViewInput.swift */; };
 		E738F2E3220A76F3F62D0F2C /* EditPackRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC846C55C615588B915C702 /* EditPackRouter.swift */; };
+		ED6F13C4CF7F706B36F85712 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DF88385E4450CEF99DDEAB /* LoginInteractor.swift */; };
 		F04FA8BE1BC5B5F06A37C3B5 /* EditPackViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C7BC04D3FD10F91A2E8E41 /* EditPackViewOutput.swift */; };
+		F1F79566569BA47AE982D048 /* LoginPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543A7A1C181DFD7F23983A94 /* LoginPresenterTests.swift */; };
 		F4A792BB6790463EDFC625B9 /* EditPackInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BBD1E352C45969003465DA /* EditPackInteractorOutput.swift */; };
+		F5C2FD3F2ACE2369E629EA5E /* LoginRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6723DE36F4B81FBEBDDAC4FD /* LoginRouterInput.swift */; };
+		F8B758F20B5E3DC0E531E30C /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2014937CDBFB386A279C1C85 /* LoginPresenter.swift */; };
 		F9D916154431F453C65A45F9 /* RootConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF4A2D2FE362DCC3C3907F5 /* RootConfigurator.swift */; };
 		FD1C2917F88ED674E2483B8C /* PackagesConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34E6F1845B8321391531BD9 /* PackagesConfiguratorTests.swift */; };
 /* End PBXBuildFile section */
@@ -108,33 +124,48 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06E3CC00779324440AF09331 /* LoginConfigurator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginConfigurator.swift; sourceTree = "<group>"; };
 		070DFDA020B9A2D50041386F /* EditPack.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditPack.storyboard; sourceTree = "<group>"; };
 		0794536F20CC4C2900165194 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		0794537120CC4C6200165194 /* LoginServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceImpl.swift; sourceTree = "<group>"; };
 		07BB01E320C2C69F00E45405 /* APITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
+		07C0D0D820CE999500823AE4 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		07E6705320C31DA6000BC754 /* PhraseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseTableViewCell.swift; sourceTree = "<group>"; };
 		09B6AF4FE800C0DB98271C4C /* PacksPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PacksPresenter.swift; sourceTree = "<group>"; };
 		0ED36E2006DDF35B429A5148 /* PacksViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PacksViewController.swift; sourceTree = "<group>"; };
+		0F3B652B19CAE6C5E84D2762 /* LoginRouterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginRouterOutput.swift; sourceTree = "<group>"; };
+		0FB1DB4FC1B398EA037FBFC0 /* LoginInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginInteractorInput.swift; sourceTree = "<group>"; };
 		10B51F62F38769D4A4F5EC02 /* Pods-hat-editor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hat-editor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hat-editor/Pods-hat-editor.debug.xcconfig"; sourceTree = "<group>"; };
 		168D09B6E3CD87D9D888B33B /* RootModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootModuleInput.swift; sourceTree = "<group>"; };
+		168F1DAE7C43A99B4C95DE53 /* LoginViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginViewInput.swift; sourceTree = "<group>"; };
 		1B9677D4B83454A5FC27404A /* EditPackPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EditPackPresenterTests.swift; sourceTree = "<group>"; };
 		1D8D6B66DD6D16A0F599038E /* Pods_hat_editor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hat_editor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2014937CDBFB386A279C1C85 /* LoginPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		22966A2A4D8925DB0812F80B /* RootRouterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootRouterOutput.swift; sourceTree = "<group>"; };
 		22BBD1E352C45969003465DA /* EditPackInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EditPackInteractorOutput.swift; sourceTree = "<group>"; };
 		272AE3A40D7F395A7CD59CC3 /* EditPackViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EditPackViewInput.swift; sourceTree = "<group>"; };
 		27780492D58D25ED318B4405 /* EditPackPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EditPackPresenter.swift; sourceTree = "<group>"; };
+		2FF01AE672776A7663B48D62 /* LoginViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4815C9855823424A16B74E56 /* LoginRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		4AC9C5F4D57D9D7980FBD73A /* RootViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootViewOutput.swift; sourceTree = "<group>"; };
+		543A7A1C181DFD7F23983A94 /* LoginPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPresenterTests.swift; sourceTree = "<group>"; };
+		56AA614FD1B182F50877F4E8 /* LoginInteractorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginInteractorTests.swift; sourceTree = "<group>"; };
 		5947C6D840267A3FA492BD51 /* Pods-hat-editorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hat-editorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-hat-editorTests/Pods-hat-editorTests.release.xcconfig"; sourceTree = "<group>"; };
-		5C96AD5D85F8784591C203E7 /* PackagesConfigurator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PackagesConfigurator.swift; sourceTree = "<group>"; };
+		5A09EE30594EABA2F999924A /* LoginConfiguratorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginConfiguratorTests.swift; sourceTree = "<group>"; };
+		5C96AD5D85F8784591C203E7 /* PacksConfigurator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PacksConfigurator.swift; sourceTree = "<group>"; };
 		5E0AE84AF719795B24AE2B60 /* Pods-hat-editorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hat-editorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hat-editorTests/Pods-hat-editorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5E7DAAB42063F34176DAC550 /* EditPackRouterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EditPackRouterOutput.swift; sourceTree = "<group>"; };
 		5E88BEDDB8EDFEE2289088DE /* EditPackRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EditPackRouterInput.swift; sourceTree = "<group>"; };
 		5FC846C55C615588B915C702 /* EditPackRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EditPackRouter.swift; sourceTree = "<group>"; };
+		60DF88385E4450CEF99DDEAB /* LoginInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		62BB758760A750DFA9FC2947 /* EditPackConfiguratorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EditPackConfiguratorTests.swift; sourceTree = "<group>"; };
 		6446CA82F634DB5CA70C7DE5 /* RootInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootInteractorInput.swift; sourceTree = "<group>"; };
+		6723DE36F4B81FBEBDDAC4FD /* LoginRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginRouterInput.swift; sourceTree = "<group>"; };
 		6ECAF235EB6B870C5B859808 /* EditPackInteractorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EditPackInteractorTests.swift; sourceTree = "<group>"; };
 		77396291DA184BE39B6FFDEE /* RootInteractorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootInteractorTests.swift; sourceTree = "<group>"; };
+		7E77E4EAFAFA72674EBAEAB7 /* LoginModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginModuleInput.swift; sourceTree = "<group>"; };
 		8307B54C5D1C921A4869C7ED /* RootInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootInteractor.swift; sourceTree = "<group>"; };
+		8C92C96CAB6FFF451C82A59E /* LoginInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginInteractorOutput.swift; sourceTree = "<group>"; };
 		8FF884D2C1863492A1643A5E /* EditPackInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EditPackInteractor.swift; sourceTree = "<group>"; };
 		95EE021F546AEF49795364FA /* EditPackViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EditPackViewController.swift; sourceTree = "<group>"; };
 		9B6B0BDDA98EF9307BC1EDB6 /* PacksInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PacksInteractor.swift; sourceTree = "<group>"; };
@@ -192,6 +223,7 @@
 		C744AB1134967A11ED86135B /* Pods_hat_editorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hat_editorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B104CA5D3FBDF0B0B76160 /* PacksRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PacksRouterInput.swift; sourceTree = "<group>"; };
 		D62EFF9E508EB27704D00C9E /* PackagesPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PackagesPresenterTests.swift; sourceTree = "<group>"; };
+		D646B01C74E0963A5EE5B93F /* LoginViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginViewOutput.swift; sourceTree = "<group>"; };
 		DCF4A2D2FE362DCC3C3907F5 /* RootConfigurator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootConfigurator.swift; sourceTree = "<group>"; };
 		DEDCB5A82ECFC01D40B79E11 /* PacksModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PacksModuleInput.swift; sourceTree = "<group>"; };
 		DF252C72BA488C6170692574 /* RootPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootPresenterTests.swift; sourceTree = "<group>"; };
@@ -269,6 +301,18 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		0970C759EF2060FDB3F14A63 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				6E2C7F72C86203C11D7A225D /* View */,
+				108C399716E80BE3BA6A30B1 /* Presenter */,
+				E1EEF7696E146186D5872147 /* Interactor */,
+				7F5C5784168F21F3A1447EAE /* Router */,
+				CB89BAB0ED4A12EA8B1B8C5C /* Configurator */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		0C101664D0CBCCDFE2A54CBD /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +321,15 @@
 				EA9AC90B144C447DAABAE5E1 /* PacksRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		108C399716E80BE3BA6A30B1 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				7E77E4EAFAFA72674EBAEAB7 /* LoginModuleInput.swift */,
+				2014937CDBFB386A279C1C85 /* LoginPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		11266DA18802B38A4E9C2756 /* Presenter */ = {
@@ -293,6 +346,7 @@
 				27284EABD5F25F9DB1D7D41F /* Packages */,
 				6AF9667A69F480C5FFD45BC1 /* Root */,
 				074E023C23E4C3D76A6DBC08 /* EditPack */,
+				D97B9EE6E637D5459F084C4E /* Login */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -362,12 +416,32 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
+		6E2C7F72C86203C11D7A225D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				168F1DAE7C43A99B4C95DE53 /* LoginViewInput.swift */,
+				D646B01C74E0963A5EE5B93F /* LoginViewOutput.swift */,
+				2FF01AE672776A7663B48D62 /* LoginViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		7EFBE3713FA63FC150D94CEC /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
 				DF252C72BA488C6170692574 /* RootPresenterTests.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		7F5C5784168F21F3A1447EAE /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				6723DE36F4B81FBEBDDAC4FD /* LoginRouterInput.swift */,
+				0F3B652B19CAE6C5E84D2762 /* LoginRouterOutput.swift */,
+				4815C9855823424A16B74E56 /* LoginRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		81D68B0DC6D13BD7BF74F670 /* Interactor */ = {
@@ -396,6 +470,14 @@
 				B9A286FDF80EAC8C3816151B /* RootConfiguratorTests.swift */,
 			);
 			path = Configurator;
+			sourceTree = "<group>";
+		};
+		87BF1EA6DEB563594768FE9C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				543A7A1C181DFD7F23983A94 /* LoginPresenterTests.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		886A381802A14EF831CE2628 /* Presenter */ = {
@@ -589,6 +671,7 @@
 				C621040B2066BED600FE974A /* Packs.storyboard */,
 				C615F9602070E61700B258AB /* Root.storyboard */,
 				070DFDA020B9A2D50041386F /* EditPack.storyboard */,
+				07C0D0D820CE999500823AE4 /* Login.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -609,6 +692,7 @@
 				AA73D68DD56B2B92592197EC /* Packs */,
 				85754369A1692F0CAE048EB0 /* Root */,
 				DB24D426F84E4AA7986C8AA7 /* EditPack */,
+				0970C759EF2060FDB3F14A63 /* Login */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -691,6 +775,22 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		CA82003DF3BAC2F9F613EFBA /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				56AA614FD1B182F50877F4E8 /* LoginInteractorTests.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		CB89BAB0ED4A12EA8B1B8C5C /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				06E3CC00779324440AF09331 /* LoginConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
 		D2528F5DF75D956F76BCFCF0 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -711,6 +811,24 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		D5EE144BA222DCC0F2C5C44B /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				5A09EE30594EABA2F999924A /* LoginConfiguratorTests.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		D97B9EE6E637D5459F084C4E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D5EE144BA222DCC0F2C5C44B /* Configurator */,
+				CA82003DF3BAC2F9F613EFBA /* Interactor */,
+				87BF1EA6DEB563594768FE9C /* Presenter */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		DB24D426F84E4AA7986C8AA7 /* EditPack */ = {
 			isa = PBXGroup;
 			children = (
@@ -721,6 +839,16 @@
 				B41604C39CAD6948F7D7CF7C /* Configurator */,
 			);
 			path = EditPack;
+			sourceTree = "<group>";
+		};
+		E1EEF7696E146186D5872147 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				0FB1DB4FC1B398EA037FBFC0 /* LoginInteractorInput.swift */,
+				8C92C96CAB6FFF451C82A59E /* LoginInteractorOutput.swift */,
+				60DF88385E4450CEF99DDEAB /* LoginInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		E2A0CBD1A16855ADCB308EC2 /* Pods */ = {
@@ -747,7 +875,7 @@
 		E8D43F55B8AAE2395F5034C0 /* Configurator */ = {
 			isa = PBXGroup;
 			children = (
-				5C96AD5D85F8784591C203E7 /* PackagesConfigurator.swift */,
+				5C96AD5D85F8784591C203E7 /* PacksConfigurator.swift */,
 			);
 			path = Configurator;
 			sourceTree = "<group>";
@@ -843,6 +971,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07C0D0D920CE999500823AE4 /* Login.storyboard in Resources */,
 				C615F9612070E61700B258AB /* Root.storyboard in Resources */,
 				C62104062066B67D00FE974A /* Localizable.strings in Resources */,
 				C621040C2066BED600FE974A /* Packs.storyboard in Resources */,
@@ -1029,7 +1158,7 @@
 				A3F290C74676BCB067D95538 /* PacksRouterInput.swift in Sources */,
 				0F25EE4E7BC7A139D3524433 /* PacksRouterOutput.swift in Sources */,
 				BFA104CF7EFCC6291BD73C17 /* PacksRouter.swift in Sources */,
-				B1340F278B016128FF810D8B /* PackagesConfigurator.swift in Sources */,
+				B1340F278B016128FF810D8B /* PacksConfigurator.swift in Sources */,
 				C653F836207D3C5D00AD4EAD /* Reusable.swift in Sources */,
 				20515672A3314FC1D07964B0 /* RootViewInput.swift in Sources */,
 				C653F830207D396100AD4EAD /* PackItemsProvider.swift in Sources */,
@@ -1062,6 +1191,18 @@
 				8361B1776254D8372C0B6438 /* EditPackRouterOutput.swift in Sources */,
 				E738F2E3220A76F3F62D0F2C /* EditPackRouter.swift in Sources */,
 				2D63DEF1253460B0D1F7053D /* EditPackConfigurator.swift in Sources */,
+				1166F8540678EBFE71AC0421 /* LoginViewInput.swift in Sources */,
+				1202F2FA2A41D37E78129193 /* LoginViewOutput.swift in Sources */,
+				55538DCB6C47DB60A2F96B65 /* LoginViewController.swift in Sources */,
+				1041F323F800F96EE8F750C1 /* LoginModuleInput.swift in Sources */,
+				F8B758F20B5E3DC0E531E30C /* LoginPresenter.swift in Sources */,
+				2B9363BB78BD563AE62CDC95 /* LoginInteractorInput.swift in Sources */,
+				567F83658E4929FD2BFCA9D0 /* LoginInteractorOutput.swift in Sources */,
+				ED6F13C4CF7F706B36F85712 /* LoginInteractor.swift in Sources */,
+				F5C2FD3F2ACE2369E629EA5E /* LoginRouterInput.swift in Sources */,
+				678187FD017646D7198A6D9E /* LoginRouterOutput.swift in Sources */,
+				AAD949A65B8E4EF07B9C9E99 /* LoginRouter.swift in Sources */,
+				5771F0561CF9F0661B66DCFB /* LoginConfigurator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1080,6 +1221,9 @@
 				3EBAA8584E974517CA8F581A /* EditPackConfiguratorTests.swift in Sources */,
 				B82A0B8856636438F7836D3C /* EditPackInteractorTests.swift in Sources */,
 				80AA11EEF68CE3723D4BEE64 /* EditPackPresenterTests.swift in Sources */,
+				A137B51A4DA2F7330413932F /* LoginConfiguratorTests.swift in Sources */,
+				4B7EA41CCAB29B3DB392FACD /* LoginInteractorTests.swift in Sources */,
+				F1F79566569BA47AE982D048 /* LoginPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

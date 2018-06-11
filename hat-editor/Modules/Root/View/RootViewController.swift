@@ -29,9 +29,4 @@ class RootViewController: UIViewController {
 extension RootViewController: RootViewInput {
     func setupInitialState() {
     }
-
-    func showNoTokenError() {
-        let alert = UIAlertController.alertController(type: .error("qwe"))
-        present(viewController: alert)
-    }
 }
