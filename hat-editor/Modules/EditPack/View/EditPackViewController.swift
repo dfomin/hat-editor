@@ -8,6 +8,13 @@
 
 import UIKit
 
+let userIcons = [
+    "fomin": "🐡",
+    "sivykh": "🐷",
+    "zhadko": "🐿",
+    "tatarintsev": "🐍"
+]
+
 class EditPackViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
@@ -17,6 +24,7 @@ class EditPackViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         output.viewIsReady()
     }
 
@@ -55,6 +63,10 @@ extension EditPackViewController: UITableViewDataSource {
         let model = output.viewDidAskModel(for: indexPath.row)
 
         cell.phrase.text = model.phrase
+        cell.phraseDescription.text = model.description
+        cell.rejectButton.setTitle(generateReviewLabel(for: .delete, with: model), for: .normal)
+        cell.editButton.setTitle(generateReviewLabel(for: .edit, with: model), for: .normal)
+        cell.acceptButton.setTitle(generateReviewLabel(for: .accept, with: model), for: .normal)
 
         return cell
     }
@@ -63,11 +75,18 @@ extension EditPackViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 
 extension EditPackViewController: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+    }
 }
 
 // MARK: - Actions
 
 private extension EditPackViewController {
-//    @IBAction func didTap(button: UIButton) {}
+}
+
+private extension EditPackViewController {
+    private func generateReviewLabel(for status: ReviewStatus, with model: Phrase) -> String {
+        return model.reviews.filter{ $0.status == status }.reduce("") { $0 + userIcons[$1.author]! }
+    }
 }

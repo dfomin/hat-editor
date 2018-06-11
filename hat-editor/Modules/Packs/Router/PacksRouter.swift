@@ -29,6 +29,6 @@ extension PacksRouter: PacksRouterInternalInput {
         let editPackViewController = UIStoryboard.Pigowl.editPack.instance.initialViewController()
         let input = EditPackModuleConfigurator.configureModuleFor(viewInput: editPackViewController, context: context, output: nil)
         input?.set(pack: pack)
-        navigator?.present(viewController: editPackViewController)
+        navigator?.push(viewController: editPackViewController)
     }
 }
