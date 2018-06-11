@@ -23,7 +23,7 @@ enum PigowlAPIError: Error {
 class PigowlAPI: ApiService {
     func login() -> Observable<PigowlAPIResult<ApiToken>> {
         let suffix = "/accounts/login"
-        let params = ["name": "fomin", "password": "rcNxfkTAQ4TH"]
+        let params = ["name": Settings.username, "password": Settings.password]
         return makePostRequest(suffix: suffix, params: params)
     }
 

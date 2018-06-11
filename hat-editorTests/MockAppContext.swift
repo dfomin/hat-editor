@@ -13,10 +13,12 @@ class MockAppContext: AppContext {
     let apiService: ApiService
     let packsService: PacksService
     let storeService: StoreService
+    let loginService: LoginService
 
     init() {
         apiService = PigowlAPI()
         storeService = Store()
         packsService = PacksServiceImpl(api: apiService, store: storeService)
+        loginService = LoginServiceImpl(api: apiService)
     }
 }
