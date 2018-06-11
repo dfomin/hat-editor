@@ -34,6 +34,10 @@ extension EditPackPresenter: EditPackViewOutput {
     func viewDidAskModel(for index: Int) -> Phrase {
         return interactor.phrase(at: index)
     }
+
+    func viewDidChangeModel(review: ReviewStatus, for trackId: Int) {
+        interactor.set(review: review, for: trackId)
+    }
 }
 
 // MARK: - EditPackInteractorOutput

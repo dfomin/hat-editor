@@ -10,4 +10,5 @@ protocol EditPackViewOutput {
     func viewIsReady()
     func viewDidAskRowsNumber() -> Int
     func viewDidAskModel(for: Int) -> Phrase
+    func viewDidChangeModel(review: ReviewStatus, for trackId: Int)
 }

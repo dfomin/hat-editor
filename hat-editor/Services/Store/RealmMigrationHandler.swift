@@ -12,7 +12,7 @@ class RealmMigrationHandler {
     let realm: Realm
 
     init() {
-        let currentSchemaVersion: UInt64 = 1
+        let currentSchemaVersion: UInt64 = 2
 
         let config = Realm.Configuration(
             // Set the new schema version. This must be greater than the previously used
@@ -22,7 +22,7 @@ class RealmMigrationHandler {
             // Set the block which will be called automatically when opening a Realm with
             // a schema version lower than the one set above
             migrationBlock: { migration, oldSchemaVersion in
-                if oldSchemaVersion < currentSchemaVersion { RealmMigrator.empty(migration: migration) }
+                if oldSchemaVersion < 1 { RealmMigrator.empty(migration: migration) }
         })
 
         // Tell Realm to use this new configuration object for the default Realm

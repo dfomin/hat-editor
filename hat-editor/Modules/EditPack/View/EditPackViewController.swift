@@ -60,8 +60,11 @@ extension EditPackViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
+        cell.delegate = self
+
         let model = output.viewDidAskModel(for: indexPath.row)
 
+        cell.trackId = model.trackId
         cell.phrase.text = model.phrase
         cell.phraseDescription.text = model.description
         cell.rejectButton.setTitle(generateReviewLabel(for: .delete, with: model), for: .normal)
@@ -77,6 +80,14 @@ extension EditPackViewController: UITableViewDataSource {
 extension EditPackViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
+    }
+}
+
+// MARK: - PhraseTableViewCellDelegate
+
+extension EditPackViewController: PhraseTableViewCellDelegate {
+    func set(review: ReviewStatus, for trackId: Int) {
+        output.viewDidChangeModel(review: review, for: trackId)
     }
 }
 

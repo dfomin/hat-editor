@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 
 class PhraseObject: Object {
+    @objc dynamic var trackId: Int = 0
     @objc dynamic var phrase: String = ""
     @objc dynamic var complexity: Double = 0.0
     @objc dynamic var descript: String = ""
@@ -27,6 +28,7 @@ extension Phrase: Storable {
     typealias ManagedObject = PhraseObject
 
     init(managedObject: PhraseObject) {
+        trackId = managedObject.trackId
         phrase = managedObject.phrase
         complexity = managedObject.complexity
         description = managedObject.descript
@@ -36,6 +38,7 @@ extension Phrase: Storable {
     var managedObject: PhraseObject {
         let object = PhraseObject()
 
+        object.trackId = trackId
         object.phrase = phrase
         object.complexity = complexity
         object.descript = description

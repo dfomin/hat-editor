@@ -23,6 +23,6 @@ class RootInteractor {
 
 extension RootInteractor: RootInteractorInput {
     func checkServerToken() -> Bool {
-        return Settings.token != nil
+        return Settings.token != nil && Settings.username != nil
     }
 }

@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+protocol PhraseTableViewCellDelegate: class {
+    func set(review: ReviewStatus, for trackId: Int)
+}
+
 class PhraseTableViewCell: UITableViewCell {
     @IBOutlet weak var phrase: UILabel!
     @IBOutlet weak var phraseDescription: UILabel!
@@ -16,23 +20,36 @@ class PhraseTableViewCell: UITableViewCell {
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var acceptButton: UIButton!
 
+    var trackId: Int?
+    weak var delegate: PhraseTableViewCellDelegate?
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
         selectionStyle = .none
     }
+
+    override func prepareForReuse() {
+        trackId = nil
+    }
 }
 
 private extension PhraseTableViewCell {
     @IBAction func reject() {
-        print("reject")
+        set(review: .delete)
     }
 
     @IBAction func edit() {
-        print("edit")
+        set(review: .edit)
     }
 
     @IBAction func accept() {
-        print("accept")
+        set(review: .accept)
+    }
+
+    func set(review: ReviewStatus) {
+        if let trackId = trackId {
+            delegate?.set(review: .accept, for: trackId)
+        }
     }
 }

@@ -34,6 +34,7 @@ extension LoginInteractor: LoginInteractorInput {
 
         context.loginService.loginOutput.subscribe(onNext: { result in
             Settings.token = result.token
+            Settings.username = username
             self.output.didReceiveServerToken(result: true)
         }).disposed(by: bag)
 

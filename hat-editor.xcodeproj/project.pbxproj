@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		06C309243678DA004FE55B5D /* EditPackInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F384CBB74BF378A19EB6BA3E /* EditPackInteractorInput.swift */; };
 		070DFDA120B9A2D50041386F /* EditPack.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 070DFDA020B9A2D50041386F /* EditPack.storyboard */; };
+		0763F38A20CEF58200AAD5BC /* PhraseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0763F38920CEF58200AAD5BC /* PhraseService.swift */; };
+		0763F38C20CEF58C00AAD5BC /* PhraseServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0763F38B20CEF58C00AAD5BC /* PhraseServiceImpl.swift */; };
 		0794537020CC4C2900165194 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0794536F20CC4C2900165194 /* LoginService.swift */; };
 		0794537220CC4C6200165194 /* LoginServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0794537120CC4C6200165194 /* LoginServiceImpl.swift */; };
 		07BB01E420C2C69F00E45405 /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BB01E320C2C69F00E45405 /* APITests.swift */; };
@@ -127,6 +129,8 @@
 /* Begin PBXFileReference section */
 		06E3CC00779324440AF09331 /* LoginConfigurator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginConfigurator.swift; sourceTree = "<group>"; };
 		070DFDA020B9A2D50041386F /* EditPack.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditPack.storyboard; sourceTree = "<group>"; };
+		0763F38920CEF58200AAD5BC /* PhraseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseService.swift; sourceTree = "<group>"; };
+		0763F38B20CEF58C00AAD5BC /* PhraseServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseServiceImpl.swift; sourceTree = "<group>"; };
 		0794536F20CC4C2900165194 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		0794537120CC4C6200165194 /* LoginServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceImpl.swift; sourceTree = "<group>"; };
 		07BB01E320C2C69F00E45405 /* APITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
@@ -276,6 +280,15 @@
 				11266DA18802B38A4E9C2756 /* Presenter */,
 			);
 			path = EditPack;
+			sourceTree = "<group>";
+		};
+		0763F38820CEF57100AAD5BC /* PhraseService */ = {
+			isa = PBXGroup;
+			children = (
+				0763F38920CEF58200AAD5BC /* PhraseService.swift */,
+				0763F38B20CEF58C00AAD5BC /* PhraseServiceImpl.swift */,
+			);
+			path = PhraseService;
 			sourceTree = "<group>";
 		};
 		0794536E20CC4C1100165194 /* LoginService */ = {
@@ -711,6 +724,7 @@
 		C62103FC2066AFEE00FE974A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				0763F38820CEF57100AAD5BC /* PhraseService */,
 				0794536E20CC4C1100165194 /* LoginService */,
 				C615F97220710CA400B258AB /* PacksService */,
 				C615F97120710CA400B258AB /* Store */,
@@ -1173,6 +1187,7 @@
 				B1340F278B016128FF810D8B /* PacksConfigurator.swift in Sources */,
 				C653F836207D3C5D00AD4EAD /* Reusable.swift in Sources */,
 				20515672A3314FC1D07964B0 /* RootViewInput.swift in Sources */,
+				0763F38C20CEF58C00AAD5BC /* PhraseServiceImpl.swift in Sources */,
 				C653F830207D396100AD4EAD /* PackItemsProvider.swift in Sources */,
 				8E76624353B970A0B969C10D /* RootViewOutput.swift in Sources */,
 				45F9854B773AAAC467FF02C9 /* RootViewController.swift in Sources */,
@@ -1212,6 +1227,7 @@
 				567F83658E4929FD2BFCA9D0 /* LoginInteractorOutput.swift in Sources */,
 				ED6F13C4CF7F706B36F85712 /* LoginInteractor.swift in Sources */,
 				F5C2FD3F2ACE2369E629EA5E /* LoginRouterInput.swift in Sources */,
+				0763F38A20CEF58200AAD5BC /* PhraseService.swift in Sources */,
 				678187FD017646D7198A6D9E /* LoginRouterOutput.swift in Sources */,
 				AAD949A65B8E4EF07B9C9E99 /* LoginRouter.swift in Sources */,
 				5771F0561CF9F0661B66DCFB /* LoginConfigurator.swift in Sources */,
@@ -1384,7 +1400,7 @@
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "hat-editor/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pigowl.hat-editor";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pigowl.HatEditor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
 				SWIFT_VERSION = 4.0;
@@ -1402,7 +1418,7 @@
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "hat-editor/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pigowl.hat-editor";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pigowl.HatEditor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
 				SWIFT_VERSION = 4.0;

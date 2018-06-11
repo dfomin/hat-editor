@@ -17,4 +17,6 @@ protocol EditPackInteractorInput {
 
     func set(pack: PhrasesPack)
     func subscribe()
+
+    func set(review: ReviewStatus, for trackId: Int)
 }

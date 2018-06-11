@@ -36,6 +36,11 @@ class PigowlAPI: ApiService {
         let suffix = "/packs/\(id)"
         return makeGetRequest(suffix: suffix)
     }
+
+    func set(review: ReviewStatus, for trackId: Int) -> Observable<PigowlAPIResult<Bool>> {
+        let suffix = ""
+        return makePostRequest(suffix: suffix, params: nil)
+    }
 }
 
 private extension PigowlAPI {

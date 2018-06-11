@@ -13,4 +13,6 @@ protocol ApiService {
 
     func allPacks() -> Observable<PigowlAPIResult<[PhrasesPack]>>
     func pack(id: Int) -> Observable<PigowlAPIResult<PhrasesPack>>
+
+    func set(review: ReviewStatus, for trackId: Int) -> Observable<PigowlAPIResult<Bool>>
 }
