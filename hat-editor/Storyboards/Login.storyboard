@@ -25,7 +25,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ddZ-EH-hkc">
-                                                <rect key="frame" x="112.5" y="318.5" width="150" height="30"/>
+                                                <rect key="frame" x="113" y="319" width="150" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="8dB-Fe-xl7"/>
                                                 </constraints>
@@ -37,14 +37,14 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="voJ-Pe-C6A">
-                                                <rect key="frame" x="168" y="398.5" width="38" height="30"/>
+                                                <rect key="frame" x="168" y="399" width="38" height="30"/>
                                                 <state key="normal" title="Login"/>
                                                 <connections>
                                                     <action selector="login:" destination="HmP-JS-Cij" eventType="touchUpInside" id="MB6-nw-uaL"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Te2-I0-Xbh">
-                                                <rect key="frame" x="112.5" y="238.5" width="150" height="30"/>
+                                                <rect key="frame" x="113" y="239" width="150" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" textContentType="username"/>
@@ -72,6 +72,19 @@
                                     <constraint firstAttribute="trailing" secondItem="srI-2J-PJ3" secondAttribute="trailing" id="gG5-Ns-1It"/>
                                 </constraints>
                             </scrollView>
+                            <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmp-ah-W0T">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="FK7-Gj-RDm">
+                                        <rect key="frame" x="177" y="313" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="FK7-Gj-RDm" firstAttribute="centerX" secondItem="cmp-ah-W0T" secondAttribute="centerX" id="ODd-na-zkN"/>
+                                    <constraint firstItem="FK7-Gj-RDm" firstAttribute="centerY" secondItem="cmp-ah-W0T" secondAttribute="centerY" id="qOk-KF-54u"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -79,12 +92,17 @@
                             <constraint firstItem="srI-2J-PJ3" firstAttribute="height" secondItem="s4h-Yp-Ok1" secondAttribute="height" id="9vI-Uf-mXb"/>
                             <constraint firstItem="Xby-vR-ZTD" firstAttribute="bottom" secondItem="Ufw-8m-TE2" secondAttribute="bottom" id="GC9-Bo-SaY"/>
                             <constraint firstItem="Ufw-8m-TE2" firstAttribute="top" secondItem="Xby-vR-ZTD" secondAttribute="top" id="I6e-RM-L1q"/>
+                            <constraint firstItem="cmp-ah-W0T" firstAttribute="leading" secondItem="Xby-vR-ZTD" secondAttribute="leading" id="PP9-yQ-rBs"/>
                             <constraint firstItem="srI-2J-PJ3" firstAttribute="width" secondItem="s4h-Yp-Ok1" secondAttribute="width" id="cu7-5C-2Fg"/>
+                            <constraint firstItem="Xby-vR-ZTD" firstAttribute="bottom" secondItem="cmp-ah-W0T" secondAttribute="bottom" id="fkB-Ql-Psr"/>
+                            <constraint firstItem="Xby-vR-ZTD" firstAttribute="trailing" secondItem="cmp-ah-W0T" secondAttribute="trailing" id="la3-wo-CmR"/>
                             <constraint firstItem="Xby-vR-ZTD" firstAttribute="trailing" secondItem="Ufw-8m-TE2" secondAttribute="trailing" id="p8A-gD-RIE"/>
+                            <constraint firstItem="cmp-ah-W0T" firstAttribute="top" secondItem="Xby-vR-ZTD" secondAttribute="top" id="t6y-FO-W6C"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xby-vR-ZTD"/>
                     </view>
                     <connections>
+                        <outlet property="loadingView" destination="cmp-ah-W0T" id="k6F-xS-fFC"/>
                         <outlet property="loginButton" destination="voJ-Pe-C6A" id="vBH-MB-Jm4"/>
                         <outlet property="passwordTextField" destination="ddZ-EH-hkc" id="Ezt-Tz-TSF"/>
                         <outlet property="scrollView" destination="Ufw-8m-TE2" id="e4a-Zm-BOv"/>

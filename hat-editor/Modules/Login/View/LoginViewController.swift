@@ -15,6 +15,8 @@ class LoginViewController: UIViewController {
     @IBOutlet private weak var loginButton: UIButton!
     @IBOutlet private weak var scrollView: UIScrollView!
 
+    @IBOutlet private weak var loadingView: UIView!
+
     var output: LoginViewOutput!
 
     // MARK: Life cycle
@@ -36,6 +38,9 @@ extension LoginViewController: LoginViewInput {
     }
 
     func showTokenError() {
+        view.isUserInteractionEnabled = true
+        loadingView.isHidden = true
+
         let alert = UIAlertController.alertController(type: .error("Wrong username or password"))
         present(viewController: alert)
     }
@@ -49,6 +54,9 @@ private extension LoginViewController {
             // TODO: show error, internal inconsistency
             return
         }
+
+        view.isUserInteractionEnabled = false
+        loadingView.isHidden = false
 
         output.login(username: username, password: password)
     }
