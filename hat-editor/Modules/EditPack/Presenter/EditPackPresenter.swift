@@ -38,6 +38,11 @@ extension EditPackPresenter: EditPackViewOutput {
     func viewDidChangeModel(review: ReviewStatus, for trackId: Int) {
         interactor.set(review: review, for: trackId)
     }
+
+    func viewDidSelect(at index: Int) {
+        let phrase = interactor.phrase(at: index)
+        router.present(phrase: phrase)
+    }
 }
 
 // MARK: - EditPackInteractorOutput

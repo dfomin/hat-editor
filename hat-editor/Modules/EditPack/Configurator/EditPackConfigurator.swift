@@ -29,7 +29,7 @@ class EditPackModuleConfigurator {
 
         let presenter = EditPackPresenter()
         let interactor = EditPackInteractor(context: context)
-        let router = EditPackRouter(moduleInput: presenter, output: output)
+        let router = EditPackRouter(moduleInput: presenter, navigator: viewController, context: context, output: output)
 
         presenter.view = viewController
         presenter.router = router

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5iF-Ko-TZp">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Phrase-->
+        <scene sceneID="PYW-nN-NNW">
+            <objects>
+                <viewController id="5iF-Ko-TZp" customClass="EditPhraseViewController" customModule="hat_editor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fmd-Ty-iQg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lzv-MG-2Yc">
+                                <rect key="frame" x="16" y="36" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2Wg-Vz-nZL">
+                                <rect key="frame" x="16" y="74" width="343" height="549"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QjQ-HK-et0" firstAttribute="bottom" secondItem="2Wg-Vz-nZL" secondAttribute="bottom" id="5ZL-1n-HRa"/>
+                            <constraint firstItem="Lzv-MG-2Yc" firstAttribute="top" secondItem="QjQ-HK-et0" secondAttribute="top" constant="16" id="MaS-oJ-hdw"/>
+                            <constraint firstItem="QjQ-HK-et0" firstAttribute="trailing" secondItem="Lzv-MG-2Yc" secondAttribute="trailing" constant="16" id="Mic-1N-DWY"/>
+                            <constraint firstItem="QjQ-HK-et0" firstAttribute="trailing" secondItem="2Wg-Vz-nZL" secondAttribute="trailing" constant="16" id="l7Y-ZP-IqC"/>
+                            <constraint firstItem="Lzv-MG-2Yc" firstAttribute="leading" secondItem="QjQ-HK-et0" secondAttribute="leading" constant="16" id="wWT-E3-E3R"/>
+                            <constraint firstItem="2Wg-Vz-nZL" firstAttribute="top" secondItem="Lzv-MG-2Yc" secondAttribute="bottom" constant="8" id="wtP-CN-66k"/>
+                            <constraint firstItem="2Wg-Vz-nZL" firstAttribute="leading" secondItem="QjQ-HK-et0" secondAttribute="leading" constant="16" id="xh7-qZ-9bd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QjQ-HK-et0"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Phrase" id="gt2-d0-m9h">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="lCL-71-fUV">
+                            <connections>
+                                <action selector="save" destination="5iF-Ko-TZp" id="o0U-EE-uzO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="2Wg-Vz-nZL" id="44f-t8-Xbo"/>
+                        <outlet property="phraseTextField" destination="Lzv-MG-2Yc" id="A2K-PM-s1N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="drc-TN-m6I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-42.399999999999999" y="72.413793103448285"/>
+        </scene>
+    </scenes>
+</document>

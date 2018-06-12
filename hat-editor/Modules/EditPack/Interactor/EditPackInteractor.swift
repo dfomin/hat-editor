@@ -55,16 +55,13 @@ extension EditPackInteractor: EditPackInteractorInput {
             self.output.didFail(with: error)
         }).disposed(by: bag)
 
-        context.phraseService.phraseOutput.subscribe(onNext: { result in
-            print(result)
-        }).disposed(by: bag)
 
-        context.phraseService.errorOutput.subscribe(onNext: { [unowned self] error in
-            self.output.didFail(with: error)
+        context.phraseService.phraseOutput.subscribe(onNext: { phrase in
+            print(phrase.phrase)
         }).disposed(by: bag)
     }
 
     func set(review: ReviewStatus, for trackId: Int) {
-        context.phraseService.setReviewInput.onNext((review, trackId))
+        //context.phraseService.setReviewInput.onNext((review, trackId))
     }
 }

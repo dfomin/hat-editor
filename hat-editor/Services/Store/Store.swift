@@ -35,6 +35,10 @@ extension Store: StoreService {
         return realm.exactUpdateObserver()
     }
 
+    var phraseInput: AnyObserver<Phrase> {
+        return realm.exactUpdateObserver()
+    }
+
     var packsOutput: Observable<[PhrasesPack]> {
         let packsObjects = realm.objects(PhrasesPackObject.self).sorted(byKeyPath: "id", ascending: true)
         let packs = Observable.collection(from: packsObjects)

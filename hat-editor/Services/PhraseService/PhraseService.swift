@@ -9,8 +9,8 @@
 import RxSwift
 
 protocol PhraseService {
-    var setReviewInput: AnyObserver<(ReviewStatus, Int)> { get }
+    var phraseInput: AnyObserver<Phrase> { get }
 
-    var phraseOutput: Observable<Bool> { get }
+    var phraseOutput: Observable<Phrase> { get }
     var errorOutput: Observable<Error> { get }
 }

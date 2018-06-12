@@ -11,8 +11,8 @@ import RxSwift
 class PhraseServiceImpl {
     private let api: ApiService
 
-    private let reviewSubjectInput = PublishSubject<(ReviewStatus, Int)>()
-    private let reviewSubjectOutput = PublishSubject<Bool>()
+    private let phraseSubjectInput = PublishSubject<Phrase>()
+    private let phraseSubjectOutput = PublishSubject<Phrase>()
     private let errors = PublishSubject<Error>()
 
     private let bag = DisposeBag()
@@ -20,9 +20,9 @@ class PhraseServiceImpl {
     init(api: ApiService) {
         self.api = api
 
-        let request = reviewSubjectInput
-            .flatMap { [unowned self] reviewInfo in
-                return self.api.set(review: reviewInfo.0, for: reviewInfo.1)
+        let request = phraseSubjectInput
+            .flatMap { [unowned self] phrase in
+                return self.api.update(phrase: phrase)
             }
             .share()
 
@@ -37,24 +37,24 @@ class PhraseServiceImpl {
             .disposed(by: bag)
 
         request
-            .flatMap { result -> Observable<Bool> in
+            .flatMap { result -> Observable<Phrase> in
                 if case .success(let value) = result {
                     return .just(value)
                 }
                 return .empty()
             }
-            .bind(to: reviewSubjectOutput)
+            .bind(to: phraseSubjectOutput)
             .disposed(by: bag)
     }
 }
 
 extension PhraseServiceImpl: PhraseService {
-    var setReviewInput: AnyObserver<(ReviewStatus, Int)> {
-        return reviewSubjectInput.asObserver()
+    var phraseInput: AnyObserver<Phrase> {
+        return phraseSubjectInput.asObserver()
     }
 
-    var phraseOutput: Observable<Bool> {
-        return reviewSubjectOutput.asObservable()
+    var phraseOutput: Observable<Phrase> {
+        return phraseSubjectOutput.asObservable()
     }
 
     var errorOutput: Observable<Error> {

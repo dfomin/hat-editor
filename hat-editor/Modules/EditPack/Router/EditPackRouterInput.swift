@@ -17,5 +17,5 @@ protocol EditPackRouterInput: AnyObject {
 // MARK: - Routing inside EditPack
 
 protocol EditPackRouterInternalInput: EditPackRouterInput {
-
+    func present(phrase: Phrase)
 }

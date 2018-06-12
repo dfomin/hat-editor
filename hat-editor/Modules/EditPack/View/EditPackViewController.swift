@@ -79,7 +79,7 @@ extension EditPackViewController: UITableViewDataSource {
 
 extension EditPackViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        output.viewDidSelect(at: indexPath.row)
     }
 }
 

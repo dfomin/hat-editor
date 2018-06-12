@@ -24,27 +24,35 @@ class PigowlAPI: ApiService {
     func login(username: String, password: String) -> Observable<PigowlAPIResult<ApiToken>> {
         let suffix = "/accounts/login"
         let params = ["name": username, "password": password]
-        return makePostRequest(suffix: suffix, params: params)
+        return makeRequest(suffix: suffix, method: .post, params: params)
     }
 
     func allPacks() -> Observable<PigowlAPIResult<[PhrasesPack]>> {
         let suffix = "/packs"
-        return makeGetRequest(suffix: suffix)
+        return makeRequest(suffix: suffix, method: .get)
     }
 
     func pack(id: Int) -> Observable<PigowlAPIResult<PhrasesPack>> {
         let suffix = "/packs/\(id)"
-        return makeGetRequest(suffix: suffix)
+        return makeRequest(suffix: suffix, method: .get)
     }
 
     func set(review: ReviewStatus, for trackId: Int) -> Observable<PigowlAPIResult<Bool>> {
         let suffix = ""
-        return makePostRequest(suffix: suffix, params: nil)
+        return makeRequest(suffix: suffix, method: .post)
+    }
+
+    func update(phrase: Phrase) -> Observable<PigowlAPIResult<Phrase>> {
+        let suffix = "/phrases/\(phrase.trackId)"
+        let data = try! JSONEncoder().encode(phrase)
+        var params = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+        params["author"] = Settings.username!
+        return makeRequest(suffix: suffix, method: .put, params: params)
     }
 }
 
 private extension PigowlAPI {
-    func makeGetRequest<T: Codable>(suffix: String) -> Observable<PigowlAPIResult<T>> {
+    func makeRequest<T: Codable>(suffix: String, method: HTTPMethod, params: [String: Any]? = nil) -> Observable<PigowlAPIResult<T>> {
         guard let url = URL(string: Settings.serverURLPrefix + suffix) else {
             return Observable.just(PigowlAPIResult.error(PigowlAPIError.pathIsNotURL))
         }
@@ -56,32 +64,10 @@ private extension PigowlAPI {
         let headers = ["authorization": "bearer " + token]
 
         return RxAlamofire
-            .requestData(.get, url, headers: headers)
+            .requestData(method, url, parameters: params, encoding: JSONEncoding.default, headers: headers)
             .flatMap({ arg -> Observable<PigowlAPIResult<T>> in
                 do {
-                    let value = try JSONDecoder().decode(T.self, from: arg.1)
-                    return Observable.just(PigowlAPIResult.success(value))
-                } catch {
-                    if let body = String(data: arg.1, encoding: .utf8) {
-                        let type = String(describing: T.self)
-                        print("-------------------------------------------------------------------------")
-                        print("An error occured during the \(type) type parsing from the following data:")
-                        print(body)
-                        print("-------------------------------------------------------------------------")
-                    }
-                    return Observable.just(PigowlAPIResult.error(error))
-                }
-            }).catchError({ Observable.just(PigowlAPIResult.error($0)) })
-    }
-
-    func makePostRequest<T: Codable>(suffix: String, params: [String: String]? = nil) -> Observable<PigowlAPIResult<T>> {
-        guard let url = URL(string: Settings.serverURLPrefix + suffix) else {
-            return Observable.just(PigowlAPIResult.error(PigowlAPIError.pathIsNotURL))
-        }
-        return RxAlamofire
-            .requestData(.post, url, parameters: params, encoding: JSONEncoding.default)
-            .flatMap({ arg -> Observable<PigowlAPIResult<T>> in
-                do {
+                    print(String(data: arg.1, encoding: String.Encoding.utf8)!)
                     let value = try JSONDecoder().decode(T.self, from: arg.1)
                     return Observable.just(PigowlAPIResult.success(value))
                 } catch {

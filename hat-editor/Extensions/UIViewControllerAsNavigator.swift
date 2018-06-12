@@ -10,6 +10,7 @@ import UIKit
 
 protocol BaseNavigator: AnyObject {
     func push(viewController: UIViewController)
+    func pop()
     func present(viewController: UIViewController)
     func present(viewController: UIViewController, completion: (() -> Void)?)
 }
@@ -18,9 +19,15 @@ extension UIViewController: BaseNavigator {
     func push(viewController: UIViewController) {
         navigationController?.pushViewController(viewController, animated: true)
     }
+
+    func pop() {
+        navigationController?.popViewController(animated: true)
+    }
+
     func present(viewController: UIViewController) {
         present(viewController, animated: true, completion: nil)
     }
+
     func present(viewController: UIViewController, completion: (() -> Void)?) {
         present(viewController, animated: true, completion: completion)
     }

@@ -13,6 +13,7 @@ extension UIStoryboard {
         case root = "Root"
         case packs = "Packs"
         case editPack = "EditPack"
+        case editPhrase = "EditPhrase"
         case login = "Login"
 
         var instance: UIStoryboard {
