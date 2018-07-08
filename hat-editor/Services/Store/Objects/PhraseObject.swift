@@ -14,6 +14,7 @@ class PhraseObject: Object {
     @objc dynamic var phrase: String = ""
     @objc dynamic var complexity: Double = 0.0
     @objc dynamic var descript: String = ""
+    @objc dynamic var version: Int = 0
 
     let reviews = List<ReviewObject>()
 
@@ -32,6 +33,7 @@ extension Phrase: Storable {
         phrase = managedObject.phrase
         complexity = managedObject.complexity
         description = managedObject.descript
+        version = managedObject.version
         reviews = managedObject.reviews.map(Review.init(managedObject:))
     }
 
@@ -42,6 +44,7 @@ extension Phrase: Storable {
         object.phrase = phrase
         object.complexity = complexity
         object.descript = description
+        object.version = version
         object.reviews.append(objectsIn: reviews.map { $0.managedObject } )
 
         return object

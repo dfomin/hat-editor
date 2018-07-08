@@ -12,6 +12,7 @@ protocol StoreService {
     // MARK: Inputs
     var packInput: AnyObserver<PhrasesPack> { get }
     var packsInput: AnyObserver<[PhrasesPack]> { get }
+    var phraseInput: AnyObserver<Phrase> { get }
 
     // MARK: Outputs
     var packsOutput: Observable<[PhrasesPack]> { get }

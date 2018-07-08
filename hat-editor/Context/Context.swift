@@ -19,7 +19,7 @@ class Context: AppContext {
         apiService = PigowlAPI()
         storeService = Store()
         packsService = PacksServiceImpl(api: apiService, store: storeService)
-        phraseService = PhraseServiceImpl(api: apiService)
+        phraseService = PhraseServiceImpl(api: apiService, store: storeService)
         loginService = LoginServiceImpl(api: apiService)
     }
 }

@@ -31,11 +31,11 @@ extension EditPackInteractor: EditPackInteractorInput {
     }
 
     var numberOfPhrases: Int {
-        return pack.phrases?.count ?? 0
+        return pack.versionedPhrases?.count ?? 0
     }
 
     func phrase(at index: Int) -> Phrase {
-        return pack.phrases![index]
+        return pack.versionedPhrases![index]
     }
 
     func set(pack: PhrasesPack) {
@@ -53,11 +53,6 @@ extension EditPackInteractor: EditPackInteractorInput {
 
         context.packsService.errorOutput.subscribe(onNext: { [unowned self] error in
             self.output.didFail(with: error)
-        }).disposed(by: bag)
-
-
-        context.phraseService.phraseOutput.subscribe(onNext: { phrase in
-            print(phrase.phrase)
         }).disposed(by: bag)
     }
 

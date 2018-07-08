@@ -15,6 +15,24 @@ struct PhrasesPack: Codable {
     let name: String
     let phrases: [Phrase]?
 
+    var versionedPhrases: [Phrase]? {
+        guard let phrases = phrases else { return nil }
+
+        var phrasesDictionary = [Int: Phrase]()
+
+        for phrase in phrases {
+            if phrasesDictionary[phrase.trackId] != nil {
+                if phrasesDictionary[phrase.trackId]!.version < phrase.version {
+                    phrasesDictionary[phrase.trackId]! = phrase
+                }
+            } else {
+                phrasesDictionary[phrase.trackId] = phrase
+            }
+        }
+
+        return phrasesDictionary.values.sorted(by: { $0.phrase < $1.phrase })
+    }
+
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(Int.self, forKey: .id)

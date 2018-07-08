@@ -10,15 +10,16 @@ import RxSwift
 
 class PhraseServiceImpl {
     private let api: ApiService
+    private let store: StoreService
 
     private let phraseSubjectInput = PublishSubject<Phrase>()
-    private let phraseSubjectOutput = PublishSubject<Phrase>()
     private let errors = PublishSubject<Error>()
 
     private let bag = DisposeBag()
 
-    init(api: ApiService) {
+    init(api: ApiService, store: StoreService) {
         self.api = api
+        self.store = store
 
         let request = phraseSubjectInput
             .flatMap { [unowned self] phrase in
@@ -43,7 +44,7 @@ class PhraseServiceImpl {
                 }
                 return .empty()
             }
-            .bind(to: phraseSubjectOutput)
+            .bind(to: store.phraseInput)
             .disposed(by: bag)
     }
 }
@@ -53,8 +54,8 @@ extension PhraseServiceImpl: PhraseService {
         return phraseSubjectInput.asObserver()
     }
 
-    var phraseOutput: Observable<Phrase> {
-        return phraseSubjectOutput.asObservable()
+    var phraseOutput: Observable<[PhrasesPack]> {
+        return store.packsOutput
     }
 
     var errorOutput: Observable<Error> {

@@ -11,6 +11,5 @@ import RxSwift
 protocol PhraseService {
     var phraseInput: AnyObserver<Phrase> { get }
 
-    var phraseOutput: Observable<Phrase> { get }
     var errorOutput: Observable<Error> { get }
 }

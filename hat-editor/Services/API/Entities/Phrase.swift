@@ -13,5 +13,6 @@ struct Phrase: Codable {
     let phrase: String
     let complexity: Double
     let description: String
+    let version: Int
     var reviews: [Review]
 }
