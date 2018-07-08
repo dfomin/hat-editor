@@ -24,7 +24,7 @@ class PigowlAPI: ApiService {
     func login(username: String, password: String) -> Observable<PigowlAPIResult<ApiToken>> {
         let suffix = "/accounts/login"
         let params = ["name": username, "password": password]
-        return makeRequest(suffix: suffix, method: .post, params: params)
+        return makeRequest(suffix: suffix, method: .post, params: params, needAuthorization: false)
     }
 
     func allPacks() -> Observable<PigowlAPIResult<[PhrasesPack]>> {
@@ -52,16 +52,20 @@ class PigowlAPI: ApiService {
 }
 
 private extension PigowlAPI {
-    func makeRequest<T: Codable>(suffix: String, method: HTTPMethod, params: [String: Any]? = nil) -> Observable<PigowlAPIResult<T>> {
+    func makeRequest<T: Codable>(suffix: String, method: HTTPMethod, params: [String: Any]? = nil, needAuthorization: Bool = true) -> Observable<PigowlAPIResult<T>> {
         guard let url = URL(string: Settings.serverURLPrefix + suffix) else {
             return Observable.just(PigowlAPIResult.error(PigowlAPIError.pathIsNotURL))
         }
 
-        guard let token = Settings.token else {
-            return Observable.just(PigowlAPIResult.error(PigowlAPIError.noToken))
-        }
+        var headers = [String: String]()
 
-        let headers = ["authorization": "bearer " + token]
+        if needAuthorization {
+            guard let token = Settings.token else {
+                return Observable.just(PigowlAPIResult.error(PigowlAPIError.noToken))
+            }
+
+            headers = ["authorization": "bearer " + token]
+        }
 
         return RxAlamofire
             .requestData(method, url, parameters: params, encoding: JSONEncoding.default, headers: headers)
