@@ -49,7 +49,7 @@ private extension PhraseTableViewCell {
 
     func set(review: ReviewStatus) {
         if let trackId = trackId {
-            delegate?.set(review: .accept, for: trackId)
+            delegate?.set(review: review, for: trackId)
         }
     }
 }

@@ -57,6 +57,7 @@ extension EditPackInteractor: EditPackInteractorInput {
     }
 
     func set(review: ReviewStatus, for trackId: Int) {
-        //context.phraseService.setReviewInput.onNext((review, trackId))
+        let review = Review(author: Settings.username!, status: review, comment: "")
+        context.phraseService.phraseReviewInput.onNext((review, trackId))
     }
 }

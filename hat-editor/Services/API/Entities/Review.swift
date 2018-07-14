@@ -11,6 +11,7 @@ import Foundation
 struct Review: Codable {
     let author: String
     let status: ReviewStatus
+    let comment: String?
 }
 
 enum ReviewStatus: String, Codable {

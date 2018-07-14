@@ -37,9 +37,12 @@ class PigowlAPI: ApiService {
         return makeRequest(suffix: suffix, method: .get)
     }
 
-    func set(review: ReviewStatus, for trackId: Int) -> Observable<PigowlAPIResult<Bool>> {
-        let suffix = ""
-        return makeRequest(suffix: suffix, method: .post)
+    func set(review: Review, for trackId: Int) -> Observable<PigowlAPIResult<Phrase>> {
+        let suffix = "/phrases/\(trackId)/review"
+        let data = try! JSONEncoder().encode(review)
+        var params = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+        params["clearReview"] = true
+        return makeRequest(suffix: suffix, method: .post, params: params)
     }
 
     func update(phrase: Phrase) -> Observable<PigowlAPIResult<Phrase>> {

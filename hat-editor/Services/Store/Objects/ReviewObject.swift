@@ -12,6 +12,7 @@ import RealmSwift
 class ReviewObject: Object {
     @objc dynamic var author: String = ""
     @objc dynamic var status: String = ""
+    @objc dynamic var comment: String? = ""
 }
 
 extension Review: Storable {
@@ -20,6 +21,7 @@ extension Review: Storable {
     init(managedObject: ReviewObject) {
         author = managedObject.author
         status = ReviewStatus(rawValue: managedObject.status)!
+        comment = managedObject.comment
     }
 
     var managedObject: ReviewObject {
@@ -27,6 +29,7 @@ extension Review: Storable {
 
         object.author = author
         object.status = status.rawValue
+        object.comment = comment
 
         return object
     }

@@ -13,6 +13,7 @@ class PhraseServiceImpl {
     private let store: StoreService
 
     private let phraseSubjectInput = PublishSubject<Phrase>()
+    private let reviewSubjectInput = PublishSubject<(Review, Int)>()
     private let errors = PublishSubject<Error>()
 
     private let bag = DisposeBag()
@@ -21,9 +22,35 @@ class PhraseServiceImpl {
         self.api = api
         self.store = store
 
-        let request = phraseSubjectInput
+        var request = phraseSubjectInput
             .flatMap { [unowned self] phrase in
                 return self.api.update(phrase: phrase)
+            }
+            .share()
+
+        request
+            .flatMap { result -> Observable<Error> in
+                if case .error(let error) = result {
+                    return .just(error)
+                }
+                return .empty()
+            }
+            .bind(to: errors)
+            .disposed(by: bag)
+
+        request
+            .flatMap { result -> Observable<Phrase> in
+                if case .success(let value) = result {
+                    return .just(value)
+                }
+                return .empty()
+            }
+            .bind(to: store.phraseInput)
+            .disposed(by: bag)
+
+        request = reviewSubjectInput
+            .flatMap { [unowned self] (review, trackId) in
+                return self.api.set(review: review, for: trackId)
             }
             .share()
 
@@ -52,6 +79,10 @@ class PhraseServiceImpl {
 extension PhraseServiceImpl: PhraseService {
     var phraseInput: AnyObserver<Phrase> {
         return phraseSubjectInput.asObserver()
+    }
+
+    var phraseReviewInput: AnyObserver<(Review, Int)> {
+        return reviewSubjectInput.asObserver()
     }
 
     var phraseOutput: Observable<[PhrasesPack]> {

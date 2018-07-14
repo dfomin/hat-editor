@@ -10,6 +10,7 @@ import RxSwift
 
 protocol PhraseService {
     var phraseInput: AnyObserver<Phrase> { get }
+    var phraseReviewInput: AnyObserver<(Review, Int)> { get }
 
     var errorOutput: Observable<Error> { get }
 }
