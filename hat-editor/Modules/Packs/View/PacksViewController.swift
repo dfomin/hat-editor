@@ -8,11 +8,19 @@
 
 import UIKit
 
+class PacksTableViewCell: UITableViewCell {
+    @IBOutlet fileprivate weak var packNameLabel: UILabel!
+}
+
 class PacksViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
-    private lazy var refreshControl = UIRefreshControl()
-    private let assembler = PhrasesCellAssembler()
+
+    private lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(didRefresh), for: .valueChanged)
+        return refreshControl
+    }()
 
     var output: PacksViewOutput!
 
@@ -32,9 +40,8 @@ extension PacksViewController: PacksViewInput {
 
     func setupInitialState() {
         self.title = L10n.packsTitle
-        refreshControl.addTarget(self, action: #selector(didRefresh), for: .valueChanged)
-        tableView.addSubview(refreshControl)
-        tableView.register(PhrasePackCell.nib, forCellReuseIdentifier: PhrasePackCell.reuseId)
+
+        tableView.refreshControl = refreshControl
     }
 
     func endRefreshing() {
@@ -58,9 +65,14 @@ extension PacksViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PacksTableViewCell.reuseId, for: indexPath) as? PacksTableViewCell else {
+            return UITableViewCell()
+        }
+
         let model = output.viewDidAskModel(for: indexPath.row)
-        let cell = tableView.dequeueReusableCell(withIdentifier: PhrasePackCell.reuseId, for: indexPath)
-        assembler.configure(cell: cell, by: model)
+
+        cell.packNameLabel.text = model.name
+
         return cell
     }
 }
@@ -77,7 +89,7 @@ extension PacksViewController: UITableViewDelegate {
 // MARK: - Actions
 
 private extension PacksViewController {
-    @IBAction func didRefresh() {
+    @objc func didRefresh() {
         output.refreshPacksList()
     }
 }

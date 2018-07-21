@@ -109,8 +109,6 @@
 		C653F828207D31CA00AD4EAD /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653F827207D31CA00AD4EAD /* Realm.swift */; };
 		C653F82E207D393800AD4EAD /* PackItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653F82D207D393800AD4EAD /* PackItemType.swift */; };
 		C653F830207D396100AD4EAD /* PackItemsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653F82F207D396100AD4EAD /* PackItemsProvider.swift */; };
-		C653F833207D3A5400AD4EAD /* PhrasePackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653F831207D3A5400AD4EAD /* PhrasePackCell.swift */; };
-		C653F834207D3A5400AD4EAD /* PhrasePackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C653F832207D3A5400AD4EAD /* PhrasePackCell.xib */; };
 		C653F836207D3C5D00AD4EAD /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653F835207D3C5D00AD4EAD /* Reusable.swift */; };
 		C6D1679E921B12626D0A4050 /* EditPhraseInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4973990197FD36733957CFF4 /* EditPhraseInteractorOutput.swift */; };
 		CBB750A2BF97177073869F5B /* EditPhrasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE9B591B11D0B0C6D8E8976 /* EditPhrasePresenter.swift */; };
@@ -252,8 +250,6 @@
 		C653F827207D31CA00AD4EAD /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
 		C653F82D207D393800AD4EAD /* PackItemType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackItemType.swift; sourceTree = "<group>"; };
 		C653F82F207D396100AD4EAD /* PackItemsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackItemsProvider.swift; sourceTree = "<group>"; };
-		C653F831207D3A5400AD4EAD /* PhrasePackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasePackCell.swift; sourceTree = "<group>"; };
-		C653F832207D3A5400AD4EAD /* PhrasePackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhrasePackCell.xib; sourceTree = "<group>"; };
 		C653F835207D3C5D00AD4EAD /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		C744AB1134967A11ED86135B /* Pods_hat_editorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hat_editorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09A6F4E8A92966372CBC0D0 /* EditPhraseViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EditPhraseViewController.swift; sourceTree = "<group>"; };
@@ -474,7 +470,6 @@
 		43A3CC0FA2834C6EEBE27320 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C653F829207D38BD00AD4EAD /* Cells */,
 				EE2B3110D37D69571569E48E /* PacksViewInput.swift */,
 				E71BD7CEECF3D68A9A0BDD28 /* PacksViewOutput.swift */,
 				0ED36E2006DDF35B429A5148 /* PacksViewController.swift */,
@@ -884,15 +879,6 @@
 			path = Objects;
 			sourceTree = "<group>";
 		};
-		C653F829207D38BD00AD4EAD /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				C653F831207D3A5400AD4EAD /* PhrasePackCell.swift */,
-				C653F832207D3A5400AD4EAD /* PhrasePackCell.xib */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
 		C653F82C207D393800AD4EAD /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -1132,7 +1118,6 @@
 				C62103FD2066AFEF00FE974A /* LaunchScreen.storyboard in Resources */,
 				070DFDA120B9A2D50041386F /* EditPack.storyboard in Resources */,
 				C62103FF2066AFEF00FE974A /* Assets.xcassets in Resources */,
-				C653F834207D3A5400AD4EAD /* PhrasePackCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1321,7 +1306,6 @@
 				8E76624353B970A0B969C10D /* RootViewOutput.swift in Sources */,
 				45F9854B773AAAC467FF02C9 /* RootViewController.swift in Sources */,
 				1F3FBADB67FE3B0E49793E30 /* RootModuleInput.swift in Sources */,
-				C653F833207D3A5400AD4EAD /* PhrasePackCell.swift in Sources */,
 				755999BF930FBA8CB39DBE0A /* RootPresenter.swift in Sources */,
 				C653F826207D308600AD4EAD /* PhraseObject.swift in Sources */,
 				A4065326325C4827456E560B /* RootInteractorInput.swift in Sources */,
