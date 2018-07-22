@@ -8,9 +8,20 @@
 
 import UIKit
 
+// MARK: - PacksTableViewCell
+
 class PacksTableViewCell: UITableViewCell {
     @IBOutlet fileprivate weak var packNameLabel: UILabel!
+    @IBOutlet fileprivate weak var extendingView: LoadableView!
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        extendingView.isLoaded = false
+    }
 }
+
+// MARK: - PacksViewController
 
 class PacksViewController: UIViewController {
 
@@ -18,16 +29,21 @@ class PacksViewController: UIViewController {
 
     private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(didRefresh), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         return refreshControl
     }()
 
     var output: PacksViewOutput!
 
-    // MARK: Life cycle
+    var isExtendedMode = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         output.viewIsReady()
+    }
+
+    @objc func refresh() {
+        output.refreshPacksList()
     }
 }
 
@@ -81,15 +97,29 @@ extension PacksViewController: UITableViewDataSource {
 
 extension PacksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        output.viewDidSelect(row: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: false)
+        //output.viewDidSelect(row: indexPath.row)
+
+        guard let cell = tableView.cellForRow(at: indexPath) as? PacksTableViewCell else { return }
+
+        cell.extendingView.isLoaded = !cell.extendingView.isLoaded
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if isExtendedMode {
+            return 88
+        } else {
+            return 44
+        }
     }
 }
 
 // MARK: - Actions
 
 private extension PacksViewController {
-    @objc func didRefresh() {
-        output.refreshPacksList()
+    @IBAction func changeMode(for modeSwitch: UISwitch) {
+        tableView.beginUpdates()
+        isExtendedMode = modeSwitch.isOn
+        tableView.endUpdates()
     }
 }

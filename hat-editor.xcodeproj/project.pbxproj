@@ -14,6 +14,7 @@
 		0763F38E20CFF43700AAD5BC /* EditPhrase.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0763F38D20CFF43700AAD5BC /* EditPhrase.storyboard */; };
 		0794537020CC4C2900165194 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0794536F20CC4C2900165194 /* LoginService.swift */; };
 		0794537220CC4C6200165194 /* LoginServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0794537120CC4C6200165194 /* LoginServiceImpl.swift */; };
+		0794A1312103FC6C00C43DD0 /* LoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0794A1302103FC6C00C43DD0 /* LoadableView.swift */; };
 		07BB01E420C2C69F00E45405 /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BB01E320C2C69F00E45405 /* APITests.swift */; };
 		07C0D0D920CE999500823AE4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07C0D0D820CE999500823AE4 /* Login.storyboard */; };
 		07C0D0DC20CEC94100823AE4 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C0D0DB20CEC94100823AE4 /* RoundedButton.swift */; };
@@ -148,6 +149,7 @@
 		0763F38D20CFF43700AAD5BC /* EditPhrase.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditPhrase.storyboard; sourceTree = "<group>"; };
 		0794536F20CC4C2900165194 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		0794537120CC4C6200165194 /* LoginServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceImpl.swift; sourceTree = "<group>"; };
+		0794A1302103FC6C00C43DD0 /* LoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableView.swift; sourceTree = "<group>"; };
 		07BB01E320C2C69F00E45405 /* APITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
 		07C0D0D820CE999500823AE4 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		07C0D0DB20CEC94100823AE4 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				07C0D0DB20CEC94100823AE4 /* RoundedButton.swift */,
+				0794A1302103FC6C00C43DD0 /* LoadableView.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -1349,6 +1352,7 @@
 				5CEAFC72BB094D253517903D /* EditPhraseViewController.swift in Sources */,
 				CFD07C75D02DFBF2A755CC66 /* EditPhraseModuleInput.swift in Sources */,
 				CBB750A2BF97177073869F5B /* EditPhrasePresenter.swift in Sources */,
+				0794A1312103FC6C00C43DD0 /* LoadableView.swift in Sources */,
 				61968195558D066C6F6B5D21 /* EditPhraseInteractorInput.swift in Sources */,
 				C6D1679E921B12626D0A4050 /* EditPhraseInteractorOutput.swift in Sources */,
 				66036ED2F0C21138694E0CDD /* EditPhraseInteractor.swift in Sources */,
