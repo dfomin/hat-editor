@@ -17,5 +17,5 @@ protocol PacksRouterInput: AnyObject {
 // MARK: - Routing inside Packs
 
 protocol PacksRouterInternalInput: PacksRouterInput {
-    func showPackScene(for package: PhrasesPack)
+    func showPackScene(for packID: Int)
 }

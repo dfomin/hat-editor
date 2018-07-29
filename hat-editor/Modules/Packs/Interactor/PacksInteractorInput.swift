@@ -11,4 +11,7 @@ import Foundation
 protocol PacksInteractorInput {
     func initiate()
     func refreshPacks()
+
+    var numberOfPacks: Int { get }
+    func pack(at index: Int) -> PackItemType
 }

@@ -9,11 +9,19 @@
 import Foundation
 
 protocol PackItemType {
-    var number: Int { get }
+    var id: Int { get }
     var name: String { get }
+    var candidates: Int { get }
+    var accepted: Int { get }
+    var toEdit: Int { get }
+    var rejected: Int { get }
 }
 
 struct PackItem: PackItemType {
-    let number: Int
+    let id: Int
     let name: String
+    let candidates: Int
+    let accepted: Int
+    let toEdit: Int
+    let rejected: Int
 }

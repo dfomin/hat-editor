@@ -98,6 +98,6 @@ private extension EditPackViewController {
 
 private extension EditPackViewController {
     private func generateReviewLabel(for status: ReviewStatus, with model: Phrase) -> String {
-        return model.reviews.filter{ $0.status == status }.reduce("") { $0 + userIcons[$1.author]! }
+        return model.reviews.filter { $0.status == status }.reduce("") { $0 + userIcons[$1.author]! }
     }
 }

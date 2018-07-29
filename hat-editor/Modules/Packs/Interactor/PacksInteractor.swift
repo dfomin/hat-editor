@@ -16,6 +16,8 @@ class PacksInteractor {
 
     private let bag = DisposeBag()
 
+    private var packs = [PackItem]()
+
     init(context: PacksInteractorContext) {
         self.context = context
     }
@@ -30,11 +32,23 @@ extension PacksInteractor: PacksInteractorInput {
 
     func initiate() {
         context.packsService.packsOutput.subscribe(onNext: { [unowned self] result in
-            self.output.didUpdate(packs: result)
+            self.packs = result.map { pack in
+                PackItem(id: pack.id, name: pack.name, candidates: pack.candidates, accepted: pack.accepted, toEdit: pack.toEdit, rejected: pack.rejected)
+            }
+
+            self.output.didUpdate()
         }).disposed(by: bag)
 
         context.packsService.errorOutput.subscribe(onNext: { [unowned self] error in
             self.output.didFail(with: error)
         }).disposed(by: bag)
+    }
+
+    var numberOfPacks: Int {
+        return packs.count
+    }
+
+    func pack(at index: Int) -> PackItemType {
+        return packs[index]
     }
 }

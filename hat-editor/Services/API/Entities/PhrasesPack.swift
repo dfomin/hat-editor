@@ -42,3 +42,25 @@ struct PhrasesPack: Codable {
         phrases = try? values.decode([Phrase].self, forKey: .phrases)
     }
 }
+
+extension PhrasesPack {
+    var candidates: Int {
+        return count(of: nil)
+    }
+
+    var accepted: Int {
+        return count(of: .accept)
+    }
+
+    var toEdit: Int {
+        return count(of: .edit)
+    }
+
+    var rejected: Int {
+        return count(of: .delete)
+    }
+
+    private func count(of reviewStatus: ReviewStatus?) -> Int {
+        return phrases?.reduce(0) { $0 + ($1.reviewStatus == reviewStatus ? 1 : 0) } ?? 0
+    }
+}

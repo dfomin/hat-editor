@@ -14,5 +14,23 @@ struct Phrase: Codable {
     let complexity: Double
     let description: String
     let version: Int
-    var reviews: [Review]
+    let reviews: [Review]
+
+    var reviewStatus: ReviewStatus? {
+        var result: ReviewStatus? = nil
+        for review in reviews {
+            if review.status == .delete {
+                result = .delete
+                break
+            } else if review.status == .edit {
+                result = .edit
+            }
+        }
+
+        if result != nil {
+            return result
+        } else {
+            return reviews.count == 4 ? .accept : nil
+        }
+    }
 }

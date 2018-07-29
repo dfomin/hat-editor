@@ -15,7 +15,6 @@ struct Review: Codable {
 }
 
 enum ReviewStatus: String, Codable {
-    case unknown
     case delete
     case edit
     case accept

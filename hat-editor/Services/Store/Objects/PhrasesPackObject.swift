@@ -41,7 +41,7 @@ extension PhrasesPack: Storable {
         object.language = language
         object.name = name
         if let phrases = phrases {
-            object.phrases.append(objectsIn: (phrases.map{ $0.managedObject }))
+            object.phrases.append(objectsIn: (phrases.map { $0.managedObject }))
         }
 
         return object

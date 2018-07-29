@@ -25,10 +25,10 @@ class PacksRouter {
 // MARK: - PacksRouterInternalInput implementation
 
 extension PacksRouter: PacksRouterInternalInput {
-    func showPackScene(for pack: PhrasesPack) {
-        let editPackViewController = UIStoryboard.Pigowl.editPack.instance.initialViewController()
+    func showPackScene(for packID: Int) {
+        /*let editPackViewController = UIStoryboard.Pigowl.editPack.instance.initialViewController()
         let input = EditPackModuleConfigurator.configureModuleFor(viewInput: editPackViewController, context: context, output: nil)
         input?.set(pack: pack)
-        navigator?.push(viewController: editPackViewController)
+        navigator?.push(viewController: editPackViewController)*/
     }
 }

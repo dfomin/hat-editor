@@ -10,23 +10,21 @@ class PacksPresenter: PacksModuleInput {
     weak var view: PacksViewInput!
     var interactor: PacksInteractorInput!
     var router: PacksRouterInternalInput!
-
-    private let dataProvider = PackItemsProvider()
 }
 
 // MARK: - PacksViewOutput
 
 extension PacksPresenter: PacksViewOutput {
     func viewDidAskRowsNumber() -> Int {
-        return dataProvider.packs.count
+        return interactor.numberOfPacks
     }
 
-    func viewDidAskModel(for row: Int) -> PackItemType {
-        return dataProvider.packs[row]
+    func viewDidAskModel(at index: Int) -> PackItemType {
+        return interactor.pack(at: index)
     }
 
-    func viewDidSelect(row: Int) {
-        router.showPackScene(for: dataProvider.packs[row])
+    func viewDidSelect(at index: Int) {
+        router.showPackScene(for: interactor.pack(at: index).id)
     }
 
     func refreshPacksList() {
@@ -48,8 +46,7 @@ extension PacksPresenter: PacksInteractorOutput {
         view.endRefreshing()
     }
 
-    func didUpdate(packs: [PhrasesPack]) {
-        dataProvider.update(by: packs)
+    func didUpdate() {
         view.reload()
         view.endRefreshing()
     }

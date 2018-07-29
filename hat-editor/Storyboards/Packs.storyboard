@@ -67,7 +67,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiU-qW-qks">
-                                                            <rect key="frame" x="8" y="11" width="42" height="21"/>
+                                                            <rect key="frame" x="8" y="11.5" width="42" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -80,16 +80,48 @@
                                                         <constraint firstItem="FiU-qW-qks" firstAttribute="centerY" secondItem="kXS-6u-PDe" secondAttribute="centerY" id="OJi-he-Xoo"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfI-1k-hpX" userLabel="Extending view" customClass="LoadableView" customModule="hat_editor" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfI-1k-hpX" userLabel="Extending view">
                                                     <rect key="frame" x="0.0" y="43.5" width="375" height="44"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="AvP-MZ-O77">
+                                                            <rect key="frame" x="8" y="0.0" width="359" height="44"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ld7-kV-lId">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="44"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                                    <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0k-Em-eLV">
+                                                                    <rect key="frame" x="90" y="0.0" width="89.5" height="44"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                                    <color key="textColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdD-iU-VNN">
+                                                                    <rect key="frame" x="179.5" y="0.0" width="90" height="44"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                                    <color key="textColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVW-6l-Cjp">
+                                                                    <rect key="frame" x="269.5" y="0.0" width="89.5" height="44"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                                    <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" white="0.0" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="Igi-Mb-rfs"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="AvP-MZ-O77" secondAttribute="trailing" id="i9f-53-gOd"/>
+                                                        <constraint firstAttribute="bottom" secondItem="AvP-MZ-O77" secondAttribute="bottom" id="nzs-eF-doB"/>
+                                                        <constraint firstItem="AvP-MZ-O77" firstAttribute="leading" secondItem="qfI-1k-hpX" secondAttribute="leadingMargin" id="p7U-wR-utg"/>
+                                                        <constraint firstItem="AvP-MZ-O77" firstAttribute="top" secondItem="qfI-1k-hpX" secondAttribute="top" id="pBw-vG-LaY"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isLoaded" value="NO"/>
-                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -102,8 +134,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="extendingView" destination="qfI-1k-hpX" id="Nyb-MR-6jo"/>
+                                            <outlet property="acceptedLabel" destination="i0k-Em-eLV" id="P5G-Mf-e61"/>
+                                            <outlet property="candidatesLabel" destination="ld7-kV-lId" id="7Q7-jj-PYc"/>
                                             <outlet property="packNameLabel" destination="FiU-qW-qks" id="62k-jd-TmG"/>
+                                            <outlet property="rejectedLabel" destination="fVW-6l-Cjp" id="uNZ-Jb-Kmv"/>
+                                            <outlet property="toEditLabel" destination="VdD-iU-VNN" id="CVr-cR-4cg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

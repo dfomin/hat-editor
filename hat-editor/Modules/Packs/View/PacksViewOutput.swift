@@ -11,6 +11,6 @@ protocol PacksViewOutput {
     func refreshPacksList()
 
     func viewDidAskRowsNumber() -> Int
-    func viewDidAskModel(for row: Int) -> PackItemType
-    func viewDidSelect(row: Int)
+    func viewDidAskModel(at index: Int) -> PackItemType
+    func viewDidSelect(at index: Int)
 }

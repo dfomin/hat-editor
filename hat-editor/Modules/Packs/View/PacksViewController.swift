@@ -12,12 +12,14 @@ import UIKit
 
 class PacksTableViewCell: UITableViewCell {
     @IBOutlet fileprivate weak var packNameLabel: UILabel!
-    @IBOutlet fileprivate weak var extendingView: LoadableView!
+
+    @IBOutlet fileprivate weak var candidatesLabel: UILabel!
+    @IBOutlet fileprivate weak var acceptedLabel: UILabel!
+    @IBOutlet fileprivate weak var toEditLabel: UILabel!
+    @IBOutlet fileprivate weak var rejectedLabel: UILabel!
 
     override func prepareForReuse() {
         super.prepareForReuse()
-
-        extendingView.isLoaded = false
     }
 }
 
@@ -85,9 +87,13 @@ extension PacksViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        let model = output.viewDidAskModel(for: indexPath.row)
+        let model = output.viewDidAskModel(at: indexPath.row)
 
-        cell.packNameLabel.text = model.name
+        cell.packNameLabel.text = "\(model.id). \(model.name)"
+        cell.candidatesLabel.text = "\(model.candidates)"
+        cell.acceptedLabel.text = "\(model.accepted)"
+        cell.toEditLabel.text = "\(model.toEdit)"
+        cell.rejectedLabel.text = "\(model.rejected)"
 
         return cell
     }
@@ -98,11 +104,7 @@ extension PacksViewController: UITableViewDataSource {
 extension PacksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        //output.viewDidSelect(row: indexPath.row)
-
-        guard let cell = tableView.cellForRow(at: indexPath) as? PacksTableViewCell else { return }
-
-        cell.extendingView.isLoaded = !cell.extendingView.isLoaded
+        output.viewDidSelect(at: indexPath.row)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
