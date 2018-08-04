@@ -7,5 +7,5 @@
 //
 
 protocol EditPackModuleInput: AnyObject {
-    func set(pack: PhrasesPack)
+    func set(packID: Int)
 }

@@ -74,7 +74,6 @@ private extension PigowlAPI {
             .requestData(method, url, parameters: params, encoding: JSONEncoding.default, headers: headers)
             .flatMap({ arg -> Observable<PigowlAPIResult<T>> in
                 do {
-                    print(String(data: arg.1, encoding: String.Encoding.utf8)!)
                     let value = try JSONDecoder().decode(T.self, from: arg.1)
                     return Observable.just(PigowlAPIResult.success(value))
                 } catch {

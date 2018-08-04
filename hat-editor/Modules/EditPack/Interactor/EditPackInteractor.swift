@@ -17,6 +17,7 @@ class EditPackInteractor {
     private let bag = DisposeBag()
 
     private var pack: PhrasesPack!
+    private var packID: Int!
 
     init(context: EditPackInteractorContext) {
         self.context = context
@@ -38,14 +39,14 @@ extension EditPackInteractor: EditPackInteractorInput {
         return pack.versionedPhrases![index]
     }
 
-    func set(pack: PhrasesPack) {
-        self.pack = pack
-        context.packsService.downloadPackInput.onNext(pack.id)
+    func set(packID: Int) {
+        self.packID = packID
+        context.packsService.downloadPackInput.onNext(packID)
     }
 
     func subscribe() {
         context.packsService.packsOutput.subscribe(onNext: { [unowned self] result in
-            if let updatedPack = result.filter({ $0.id == self.pack.id }).first {
+            if let updatedPack = result.filter({ $0.id == self.packID }).first {
                 self.pack = updatedPack
                 self.output.didUpdatePack()
             }

@@ -13,8 +13,8 @@ class EditPackPresenter: EditPackModuleInput {
     var interactor: EditPackInteractorInput!
     var router: EditPackRouterInternalInput!
 
-    func set(pack: PhrasesPack) {
-        interactor.set(pack: pack)
+    func set(packID: Int) {
+        interactor.set(packID: packID)
     }
 }
 
@@ -22,9 +22,9 @@ class EditPackPresenter: EditPackModuleInput {
 
 extension EditPackPresenter: EditPackViewOutput {
     func viewIsReady() {
-        view.setPack(title: interactor.packTitle)
-
         interactor.subscribe()
+
+        view.setPack(title: interactor.packTitle)
     }
 
     func viewDidAskRowsNumber() -> Int {

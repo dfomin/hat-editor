@@ -26,9 +26,9 @@ class PacksRouter {
 
 extension PacksRouter: PacksRouterInternalInput {
     func showPackScene(for packID: Int) {
-        /*let editPackViewController = UIStoryboard.Pigowl.editPack.instance.initialViewController()
+        let editPackViewController = UIStoryboard.Pigowl.editPack.instance.initialViewController()
         let input = EditPackModuleConfigurator.configureModuleFor(viewInput: editPackViewController, context: context, output: nil)
-        input?.set(pack: pack)
-        navigator?.push(viewController: editPackViewController)*/
+        input?.set(packID: packID)
+        navigator?.push(viewController: editPackViewController)
     }
 }

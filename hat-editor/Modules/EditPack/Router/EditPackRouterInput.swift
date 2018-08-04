@@ -11,7 +11,7 @@ import Foundation
 // MARK: - Routing for external modules
 
 protocol EditPackRouterInput: AnyObject {
-    func set(pack: PhrasesPack)
+    func set(packID: Int)
 }
 
 // MARK: - Routing inside EditPack

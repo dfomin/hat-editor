@@ -25,8 +25,8 @@ class EditPackRouter {
 // MARK: - EditPackRouterInternalInput implementation
 
 extension EditPackRouter: EditPackRouterInternalInput {
-    func set(pack: PhrasesPack) {
-        moduleInput?.set(pack: pack)
+    func set(packID: Int) {
+        moduleInput?.set(packID: packID)
     }
 
     func present(phrase: Phrase) {
