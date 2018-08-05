@@ -8,7 +8,7 @@
 
 import RxSwift
 
-typealias PacksInteractorContext = AppContext // & write more precisely
+typealias PacksInteractorContext = HasPacksService
 
 class PacksInteractor {
     weak var output: PacksInteractorOutput!

@@ -23,8 +23,6 @@ class EditPackPresenter: EditPackModuleInput {
 extension EditPackPresenter: EditPackViewOutput {
     func viewIsReady() {
         interactor.subscribe()
-
-        view.setPack(title: interactor.packTitle)
     }
 
     func viewDidAskRowsNumber() -> Int {
@@ -53,6 +51,8 @@ extension EditPackPresenter: EditPackInteractorOutput {
     }
 
     func didUpdatePack() {
+        view.setPack(title: interactor.packTitle)
+
         view.reload()
     }
 }

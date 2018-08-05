@@ -23,8 +23,6 @@ class PhrasesPackObject: Object {
 }
 
 extension PhrasesPack: Storable {
-    typealias ManagedObject = PhrasesPackObject
-
     init(managedObject: PhrasesPackObject) {
         id = managedObject.id
         version = managedObject.version
@@ -42,6 +40,11 @@ extension PhrasesPack: Storable {
         object.name = name
         if let phrases = phrases {
             object.phrases.append(objectsIn: (phrases.map { $0.managedObject }))
+        } else {
+            let realm = try? Realm()
+            if let oldPackObject = realm?.object(ofType: PhrasesPackObject.self, forPrimaryKey: object.id) {
+                object.phrases.append(objectsIn: oldPackObject.phrases)
+            }
         }
 
         return object

@@ -12,9 +12,10 @@ class PacksModuleConfigurator {
 
     typealias PacksModuleContext = PacksInteractorContext // & RouterContext may be
 
-    @discardableResult static func configureModuleFor(viewInput: UIViewController?,
-                                                      context: PacksModuleContext,
-                                                      output: PacksRouterOutput?) -> PacksRouterInput? {
+    @discardableResult
+    static func configureModuleFor(viewInput: UIViewController?,
+                                   context: AppContext,
+                                   output: PacksRouterOutput?) -> PacksRouterInput? {
         if let viewController = viewInput as? PacksViewController {
             return configure(viewController: viewController, context: context, output: output)
         }
@@ -22,7 +23,7 @@ class PacksModuleConfigurator {
     }
 
     private static func configure(viewController: PacksViewController,
-                                  context: PacksModuleContext,
+                                  context: AppContext,
                                   output: PacksRouterOutput?) -> PacksRouterInput {
 
         let presenter = PacksPresenter()
