@@ -30,16 +30,24 @@ extension LoginInteractor: LoginInteractorInput {
             return
         }
 
-        context.loginService.loginInput.onNext((username, password))
+        let loginRequest = LoginNetworkRequest(username: username, password: password)
 
-        context.loginService.loginOutput.subscribe(onNext: { result in
-            Settings.token = result.token
-            Settings.username = username
-            self.output.didReceiveServerToken(result: true)
+        loginRequest.loginResponseSubject.subscribe(onNext: { result in
+            switch result {
+            case .success(let apiToken):
+                Settings.token = apiToken.token
+                Settings.username = username
+                self.output.didReceiveServerToken(result: true)
+            case .error:
+                self.output.didReceiveServerToken(result: false)
+            }
+
         }).disposed(by: bag)
 
-        context.loginService.errorOutput.subscribe(onNext: { [unowned self] error in
+        loginRequest.loginResponseSubject.subscribe(onError: { [unowned self] error in
             self.output.didReceiveServerToken(result: false)
         }).disposed(by: bag)
+
+        loginRequest.schedule()
     }
 }
