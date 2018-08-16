@@ -11,7 +11,6 @@ import Foundation
 struct Phrase: Codable {
     let trackId: Int
     let phrase: String
-    let complexity: Double
     let description: String
     let version: Int
     let reviews: [Review]

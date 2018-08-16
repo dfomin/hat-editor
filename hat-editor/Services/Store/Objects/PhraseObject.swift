@@ -12,7 +12,6 @@ import RealmSwift
 class PhraseObject: Object {
     @objc dynamic var trackId: Int = 0
     @objc dynamic var phrase: String = ""
-    @objc dynamic var complexity: Double = 0.0
     @objc dynamic var descript: String = ""
     @objc dynamic var version: Int = 0
 
@@ -21,6 +20,7 @@ class PhraseObject: Object {
     let linkingPacks = LinkingObjects(fromType: PhrasesPackObject.self, property: "phrases")
 
     override static func primaryKey() -> String? {
+        // TODO: wrong, should be 'id'
         return "phrase"
     }
 }
@@ -31,7 +31,6 @@ extension Phrase: Storable {
     init(managedObject: PhraseObject) {
         trackId = managedObject.trackId
         phrase = managedObject.phrase
-        complexity = managedObject.complexity
         description = managedObject.descript
         version = managedObject.version
         reviews = managedObject.reviews.map(Review.init(managedObject:))
@@ -42,7 +41,6 @@ extension Phrase: Storable {
 
         object.trackId = trackId
         object.phrase = phrase
-        object.complexity = complexity
         object.descript = description
         object.version = version
         object.reviews.append(objectsIn: reviews.map { $0.managedObject } )

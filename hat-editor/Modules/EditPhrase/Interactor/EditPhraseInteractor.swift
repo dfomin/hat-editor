@@ -31,7 +31,7 @@ extension EditPhraseInteractor: EditPhraseInteractorInput {
     }
 
     func update(newPhrase: String, newDescription: String) {
-        let newPhrase = Phrase(trackId: phrase.trackId, phrase: newPhrase, complexity: phrase.complexity, description: newDescription, version: phrase.version, reviews: phrase.reviews)
+        let newPhrase = Phrase(trackId: phrase.trackId, phrase: newPhrase, description: newDescription, version: phrase.version, reviews: phrase.reviews)
 
         context.phraseService.update(phrase: newPhrase)
     }
