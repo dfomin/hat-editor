@@ -35,7 +35,7 @@ class NetworkManager {
         DispatchQueue.global(qos: .background).async {
             for request in self.requestsQueue {
                 do {
-                    try self.send(request: request.data).bind(to: request.responseSubject).disposed(by: self.bag)
+                    try self.send(request: request.data).bind(to: request.rawResponseSubject).disposed(by: self.bag)
                 } catch let error {
                     print(error)
                 }

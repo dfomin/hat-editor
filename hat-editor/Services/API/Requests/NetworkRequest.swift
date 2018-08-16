@@ -21,7 +21,7 @@ class NetworkRequest {
     static var manager = NetworkManager(serverURLPrefix: Settings.serverURLPrefix)
 
     let data: NetworkRequestData
-    let responseSubject = PublishSubject<(HTTPURLResponse, Data)>()
+    let rawResponseSubject = PublishSubject<(HTTPURLResponse, Data)>()
 
     init(data: NetworkRequestData) {
         self.data = data
@@ -29,5 +29,23 @@ class NetworkRequest {
 
     func schedule() {
         NetworkRequest.manager.add(request: self)
+    }
+}
+
+class TypedNetworkRequest<T>: NetworkRequest {
+    let responseSubject = PublishSubject<NetworkResponse<ApiToken>>()
+    let bag = DisposeBag()
+
+    override init(data: NetworkRequestData) {
+        super.init(data: data)
+
+        rawResponseSubject.flatMap({ arg -> Observable<NetworkResponse<ApiToken>> in
+            do {
+                let value = try JSONDecoder().decode(ApiToken.self, from: arg.1)
+                return Observable.just(NetworkResponse.success(value))
+            } catch let error {
+                return Observable.just(NetworkResponse.error(error))
+            }
+        }).bind(to: responseSubject).disposed(by: bag)
     }
 }

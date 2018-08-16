@@ -32,7 +32,7 @@ extension LoginInteractor: LoginInteractorInput {
 
         let loginRequest = LoginNetworkRequest(username: username, password: password)
 
-        loginRequest.loginResponseSubject.subscribe(onNext: { result in
+        loginRequest.responseSubject.subscribe(onNext: { result in
             switch result {
             case .success(let apiToken):
                 Settings.token = apiToken.token
@@ -44,7 +44,7 @@ extension LoginInteractor: LoginInteractorInput {
 
         }).disposed(by: bag)
 
-        loginRequest.loginResponseSubject.subscribe(onError: { [unowned self] error in
+        loginRequest.responseSubject.subscribe(onError: { [unowned self] error in
             self.output.didReceiveServerToken(result: false)
         }).disposed(by: bag)
 

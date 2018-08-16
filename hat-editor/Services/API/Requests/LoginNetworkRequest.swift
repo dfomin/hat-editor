@@ -9,10 +9,7 @@
 import Alamofire
 import RxSwift
 
-class LoginNetworkRequest: NetworkRequest {
-    let loginResponseSubject = PublishSubject<NetworkResponse<ApiToken>>()
-    let bag = DisposeBag()
-
+class LoginNetworkRequest: TypedNetworkRequest<ApiToken> {
     init(username: String, password: String) {
         let urlSuffix = "/accounts/login"
 
@@ -25,20 +22,5 @@ class LoginNetworkRequest: NetworkRequest {
         let data = NetworkRequestData(urlSuffix: urlSuffix, method: method, parameters: parameters, headers: nil, needAuthorization: false)
         
         super.init(data: data)
-
-        initSubject()
-    }
-}
-
-private extension LoginNetworkRequest {
-    func initSubject() {
-        responseSubject.flatMap({ arg -> Observable<NetworkResponse<ApiToken>> in
-            do {
-                let value = try JSONDecoder().decode(ApiToken.self, from: arg.1)
-                return Observable.just(NetworkResponse.success(value))
-            } catch let error {
-                return Observable.just(NetworkResponse.error(error))
-            }
-        }).bind(to: loginResponseSubject).disposed(by: bag)
     }
 }
