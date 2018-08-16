@@ -9,10 +9,9 @@
 import RxSwift
 
 protocol PacksService {
-    var refreshPacksInput: AnyObserver<Void> { get }
-    var downloadPackInput: AnyObserver<Int> { get }
+    func refreshPacks()
+    func downloadPack(id: Int)
 
     var packsOutput: Observable<[PhrasesPack]> { get }
-
     var errorOutput: Observable<Error> { get }
 }

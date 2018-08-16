@@ -8,6 +8,7 @@
 
 import Alamofire
 import RxSwift
+import RxCocoa
 
 struct NetworkRequestData {
     let urlSuffix: String
@@ -32,16 +33,18 @@ class NetworkRequest {
     }
 }
 
-class TypedNetworkRequest<T>: NetworkRequest {
-    let responseSubject = PublishSubject<NetworkResponse<ApiToken>>()
-    let bag = DisposeBag()
+class TypedNetworkRequest<T: Codable>: NetworkRequest {
+    private let bag = DisposeBag()
+
+    let responseSubject = PublishSubject<NetworkResponse<T>>()
 
     override init(data: NetworkRequestData) {
         super.init(data: data)
 
-        rawResponseSubject.flatMap({ arg -> Observable<NetworkResponse<ApiToken>> in
+        rawResponseSubject.flatMap({ arg -> Observable<NetworkResponse<T>> in
             do {
-                let value = try JSONDecoder().decode(ApiToken.self, from: arg.1)
+                print(String(data: arg.1, encoding: String.Encoding.utf8) ?? "")
+                let value = try JSONDecoder().decode(T.self, from: arg.1)
                 return Observable.just(NetworkResponse.success(value))
             } catch let error {
                 return Observable.just(NetworkResponse.error(error))

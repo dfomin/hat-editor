@@ -7,7 +7,6 @@
 //
 
 import Alamofire
-import RxSwift
 
 class LoginNetworkRequest: TypedNetworkRequest<ApiToken> {
     init(username: String, password: String) {

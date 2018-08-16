@@ -9,15 +9,13 @@
 import Foundation
 
 class Context: AppContext {
-    let apiService: ApiService
     let storeService: StoreService
     let packsService: PacksService
     let phraseService: PhraseService
 
     init() {
-        apiService = PigowlAPI()
         storeService = Store()
-        packsService = PacksServiceImpl(api: apiService, store: storeService)
-        phraseService = PhraseServiceImpl(api: apiService, store: storeService)
+        packsService = PacksServiceImpl(store: storeService)
+        phraseService = PhraseServiceImpl(store: storeService)
     }
 }

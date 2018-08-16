@@ -41,7 +41,8 @@ extension EditPackInteractor: EditPackInteractorInput {
 
     func set(packID: Int) {
         self.packID = packID
-        context.packsService.downloadPackInput.onNext(packID)
+
+        context.packsService.downloadPack(id: packID)
     }
 
     func subscribe() {
@@ -59,6 +60,6 @@ extension EditPackInteractor: EditPackInteractorInput {
 
     func set(review: ReviewStatus, for trackId: Int) {
         let review = Review(author: Settings.username!, status: review, comment: "")
-        context.phraseService.phraseReviewInput.onNext((review, trackId))
+        context.phraseService.update(review: review, for: trackId)
     }
 }

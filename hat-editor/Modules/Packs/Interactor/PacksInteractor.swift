@@ -27,7 +27,7 @@ class PacksInteractor {
 
 extension PacksInteractor: PacksInteractorInput {
     func refreshPacks() {
-        context.packsService.refreshPacksInput.onNext(())
+        context.packsService.refreshPacks()
     }
 
     func initiate() {

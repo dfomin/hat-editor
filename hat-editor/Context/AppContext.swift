@@ -8,10 +8,6 @@
 
 import Foundation
 
-protocol HasApiService {
-    var apiService: ApiService { get }
-}
-
 protocol HasStoreService {
     var storeService: StoreService { get }
 }
@@ -24,4 +20,4 @@ protocol HasPhraseService {
     var phraseService: PhraseService { get }
 }
 
-typealias AppContext = HasApiService & HasStoreService & HasPacksService & HasPhraseService
+typealias AppContext = HasStoreService & HasPacksService & HasPhraseService

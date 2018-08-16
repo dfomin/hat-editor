@@ -9,80 +9,38 @@
 import RxSwift
 
 class PhraseServiceImpl {
-    private let api: ApiService
     private let store: StoreService
 
-    private let phraseSubjectInput = PublishSubject<Phrase>()
-    private let reviewSubjectInput = PublishSubject<(Review, Int)>()
+    private let phraseSubject = PublishSubject<Phrase>()
     private let errors = PublishSubject<Error>()
 
     private let bag = DisposeBag()
 
-    init(api: ApiService, store: StoreService) {
-        self.api = api
+    init(store: StoreService) {
         self.store = store
-
-        var request = phraseSubjectInput
-            .flatMap { [unowned self] phrase in
-                return self.api.update(phrase: phrase)
-            }
-            .share()
-
-        request
-            .flatMap { result -> Observable<Error> in
-                if case .error(let error) = result {
-                    return .just(error)
-                }
-                return .empty()
-            }
-            .bind(to: errors)
-            .disposed(by: bag)
-
-        request
-            .flatMap { result -> Observable<Phrase> in
-                if case .success(let value) = result {
-                    return .just(value)
-                }
-                return .empty()
-            }
-            .bind(to: store.phraseInput)
-            .disposed(by: bag)
-
-        request = reviewSubjectInput
-            .flatMap { [unowned self] (review, trackId) in
-                return self.api.set(review: review, for: trackId)
-            }
-            .share()
-
-        request
-            .flatMap { result -> Observable<Error> in
-                if case .error(let error) = result {
-                    return .just(error)
-                }
-                return .empty()
-            }
-            .bind(to: errors)
-            .disposed(by: bag)
-
-        request
-            .flatMap { result -> Observable<Phrase> in
-                if case .success(let value) = result {
-                    return .just(value)
-                }
-                return .empty()
-            }
-            .bind(to: store.phraseInput)
-            .disposed(by: bag)
     }
 }
 
 extension PhraseServiceImpl: PhraseService {
-    var phraseInput: AnyObserver<Phrase> {
-        return phraseSubjectInput.asObserver()
+    func update(phrase: Phrase) {
+        let request = UpdatePhraseNetworkRequest(trackId: phrase.trackId, phrase: phrase.phrase, description: phrase.description, version: phrase.version)
+
+        request.responseSubject.subscribe { [weak self] event in
+            switch event {
+            case .next(NetworkResponse.success(let value)):
+                self?.phraseSubject.onNext(value)
+            case .next(NetworkResponse.error(let error)), .error(let error):
+                self?.errors.onNext(error)
+            case .completed:
+                break
+            }
+        }.disposed(by: bag)
+
+        request.schedule()
     }
 
-    var phraseReviewInput: AnyObserver<(Review, Int)> {
-        return reviewSubjectInput.asObserver()
+    func update(review: Review, for phraseTrackID: Int) {
+
     }
 
     var phraseOutput: Observable<[PhrasesPack]> {

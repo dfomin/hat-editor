@@ -7,83 +7,63 @@
 //
 
 import RxSwift
-import RxCocoa
 
 class PacksServiceImpl {
-    private let api: ApiService
     private let store: StoreService
 
-    private let refreshPacksSubject = PublishSubject<Void>()
-    private let downloadPackSubject = PublishSubject<Int>()
+    let allPacksRequest = AllPacksNetworkRequest()
+    var packRequests = [Int: PackNetworkRequest]()
+
     private let errors = PublishSubject<Error>()
 
     private let bag = DisposeBag()
 
-    init(api: ApiService, store: StoreService) {
-        self.api = api
+    init(store: StoreService) {
         self.store = store
 
-        let request = refreshPacksSubject
-            .flatMap { [unowned self] _ in
-                return self.api.allPacks()
+        allPacksRequest.responseSubject.subscribe { [weak self] event in
+            switch event {
+            case .next(NetworkResponse.success(let value)):
+                store.packsInput.onNext(value)
+            case .error(let error), .next(NetworkResponse.error(let error)):
+                self?.errors.onError(error)
+            case .completed:
+                break
             }
-            .share()
-
-        request
-            .flatMap { result -> Observable<Error> in
-                if case .error(let error) = result {
-                    return .just(error)
-                }
-                return .empty()
-            }
-            .bind(to: errors)
-            .disposed(by: bag)
-
-        request
-            .flatMap { result -> Observable<[PhrasesPack]> in
-                if case .success(let value) = result {
-                    return .just(value)
-                }
-                return .empty()
-            }
-            .bind(to: store.packsInput)
-            .disposed(by: bag)
-
-        initPackDownloading()
+        }.disposed(by: bag)
     }
 
-    func initPackDownloading() {
-        let request = downloadPackSubject
-            .flatMap { [unowned self] id in
-                return self.api.pack(id: id)
+    func initPackRequest(for packID: Int) -> PackNetworkRequest {
+        let packRequest = PackNetworkRequest(id: packID)
+        packRequest.responseSubject.subscribe { [weak self] event in
+            switch event {
+            case .next(NetworkResponse.success(let value)):
+                self?.store.packInput.onNext(value)
+            case .error(let error), .next(NetworkResponse.error(let error)):
+                self?.errors.onError(error)
+            case .completed:
+                break
             }
-            .share()
+        }.disposed(by: bag)
 
-        request
-            .flatMap { result -> Observable<Error> in
-                if case .error(let error) = result {
-                    return .just(error)
-                }
-                return .empty()
-            }
-            .bind(to: errors)
-            .disposed(by: bag)
+        packRequests[packID] = packRequest
 
-        request
-            .flatMap { result -> Observable<PhrasesPack> in
-                if case .success(let value) = result {
-                    return .just(value)
-                }
-                return .empty()
-            }
-            .bind(to: store.packInput)
-            .disposed(by: bag)
+        return packRequest
     }
 }
 
 extension PacksServiceImpl: PacksService {
-    var refreshPacksInput: AnyObserver<Void> {
-        return refreshPacksSubject.asObserver()
+    func refreshPacks() {
+        allPacksRequest.schedule()
+    }
+
+    func downloadPack(id: Int) {
+        if let packRequest = packRequests[id] {
+            packRequest.schedule()
+        } else {
+            let request = initPackRequest(for: id)
+            request.schedule()
+        }
     }
 
     var packsOutput: Observable<[PhrasesPack]> {
@@ -92,9 +72,5 @@ extension PacksServiceImpl: PacksService {
 
     var errorOutput: Observable<Error> {
         return errors.asObservable()
-    }
-
-    var downloadPackInput: AnyObserver<Int> {
-        return downloadPackSubject.asObserver()
     }
 }

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		06C309243678DA004FE55B5D /* EditPackInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F384CBB74BF378A19EB6BA3E /* EditPackInteractorInput.swift */; };
 		070DFDA120B9A2D50041386F /* EditPack.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 070DFDA020B9A2D50041386F /* EditPack.storyboard */; };
+		073C5CAB2125BE1000346C8F /* AllPacksNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073C5CAA2125BE1000346C8F /* AllPacksNetworkRequest.swift */; };
+		073C5CAD2125BEAB00346C8F /* PackNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073C5CAC2125BEAB00346C8F /* PackNetworkRequest.swift */; };
+		073C5CAF2125BF3E00346C8F /* UpdateReviewNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073C5CAE2125BF3E00346C8F /* UpdateReviewNetworkRequest.swift */; };
+		073C5CB12125C0B600346C8F /* UpdatePhraseNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073C5CB02125C0B600346C8F /* UpdatePhraseNetworkRequest.swift */; };
 		0763F38A20CEF58200AAD5BC /* PhraseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0763F38920CEF58200AAD5BC /* PhraseService.swift */; };
 		0763F38C20CEF58C00AAD5BC /* PhraseServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0763F38B20CEF58C00AAD5BC /* PhraseServiceImpl.swift */; };
 		0763F38E20CFF43700AAD5BC /* EditPhrase.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0763F38D20CFF43700AAD5BC /* EditPhrase.storyboard */; };
@@ -100,8 +104,6 @@
 		C621040F2066C3B100FE974A /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = C621040E2066C3B100FE974A /* Context.swift */; };
 		C62104112066C3C700FE974A /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62104102066C3C700FE974A /* AppContext.swift */; };
 		C62104132066C79800FE974A /* MockAppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62104122066C79800FE974A /* MockAppContext.swift */; };
-		C62104172067993C00FE974A /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62104162067993C00FE974A /* ApiService.swift */; };
-		C62104192067994C00FE974A /* PigowlAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62104182067994C00FE974A /* PigowlAPI.swift */; };
 		C621041B20679ABC00FE974A /* ApiSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C621041A20679ABC00FE974A /* ApiSettings.swift */; };
 		C653F814207C638000AD4EAD /* RxOptional.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653F813207C638000AD4EAD /* RxOptional.swift */; };
 		C653F823207D308600AD4EAD /* ReviewObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653F81F207D308600AD4EAD /* ReviewObject.swift */; };
@@ -144,6 +146,10 @@
 /* Begin PBXFileReference section */
 		06E3CC00779324440AF09331 /* LoginConfigurator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginConfigurator.swift; sourceTree = "<group>"; };
 		070DFDA020B9A2D50041386F /* EditPack.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditPack.storyboard; sourceTree = "<group>"; };
+		073C5CAA2125BE1000346C8F /* AllPacksNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPacksNetworkRequest.swift; sourceTree = "<group>"; };
+		073C5CAC2125BEAB00346C8F /* PackNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackNetworkRequest.swift; sourceTree = "<group>"; };
+		073C5CAE2125BF3E00346C8F /* UpdateReviewNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateReviewNetworkRequest.swift; sourceTree = "<group>"; };
+		073C5CB02125C0B600346C8F /* UpdatePhraseNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePhraseNetworkRequest.swift; sourceTree = "<group>"; };
 		0763F38920CEF58200AAD5BC /* PhraseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseService.swift; sourceTree = "<group>"; };
 		0763F38B20CEF58C00AAD5BC /* PhraseServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseServiceImpl.swift; sourceTree = "<group>"; };
 		0763F38D20CFF43700AAD5BC /* EditPhrase.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditPhrase.storyboard; sourceTree = "<group>"; };
@@ -242,8 +248,6 @@
 		C621040E2066C3B100FE974A /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		C62104102066C3C700FE974A /* AppContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContext.swift; sourceTree = "<group>"; };
 		C62104122066C79800FE974A /* MockAppContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAppContext.swift; sourceTree = "<group>"; };
-		C62104162067993C00FE974A /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
-		C62104182067994C00FE974A /* PigowlAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PigowlAPI.swift; sourceTree = "<group>"; };
 		C621041A20679ABC00FE974A /* ApiSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSettings.swift; sourceTree = "<group>"; };
 		C653F813207C638000AD4EAD /* RxOptional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxOptional.swift; sourceTree = "<group>"; };
 		C653F81F207D308600AD4EAD /* ReviewObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewObject.swift; sourceTree = "<group>"; };
@@ -334,6 +338,10 @@
 			children = (
 				07779FB02117B49500D19F11 /* NetworkRequest.swift */,
 				07779FB421184C9E00D19F11 /* LoginNetworkRequest.swift */,
+				073C5CAA2125BE1000346C8F /* AllPacksNetworkRequest.swift */,
+				073C5CAC2125BEAB00346C8F /* PackNetworkRequest.swift */,
+				073C5CAE2125BF3E00346C8F /* UpdateReviewNetworkRequest.swift */,
+				073C5CB02125C0B600346C8F /* UpdatePhraseNetworkRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -864,10 +872,8 @@
 			children = (
 				C615F9692070F15F00B258AB /* Entities */,
 				07779FAF2117B46F00D19F11 /* Requests */,
-				C62104162067993C00FE974A /* ApiService.swift */,
 				C621041A20679ABC00FE974A /* ApiSettings.swift */,
 				07779FB22117B4FA00D19F11 /* NetworkManager.swift */,
-				C62104182067994C00FE974A /* PigowlAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1270,8 +1276,8 @@
 				C653F825207D308600AD4EAD /* PhrasesPackObject.swift in Sources */,
 				C615F9662070E8B300B258AB /* UIStoryboardExt.swift in Sources */,
 				C62104112066C3C700FE974A /* AppContext.swift in Sources */,
+				073C5CAD2125BEAB00346C8F /* PackNetworkRequest.swift in Sources */,
 				C621041B20679ABC00FE974A /* ApiSettings.swift in Sources */,
-				C62104172067993C00FE974A /* ApiService.swift in Sources */,
 				C653F823207D308600AD4EAD /* ReviewObject.swift in Sources */,
 				C653F828207D31CA00AD4EAD /* Realm.swift in Sources */,
 				C621040A2066B86A00FE974A /* L10n.generated.swift in Sources */,
@@ -1280,7 +1286,6 @@
 				07C0D0DC20CEC94100823AE4 /* RoundedButton.swift in Sources */,
 				C615F96B2070F18900B258AB /* PhrasesPack.swift in Sources */,
 				C615F97420710CC100B258AB /* PacksService.swift in Sources */,
-				C62104192067994C00FE974A /* PigowlAPI.swift in Sources */,
 				C621040F2066C3B100FE974A /* Context.swift in Sources */,
 				C653F814207C638000AD4EAD /* RxOptional.swift in Sources */,
 				C653F82E207D393800AD4EAD /* PackItemType.swift in Sources */,
@@ -1327,17 +1332,20 @@
 				5D8E3B4B604F86EA75382F4F /* EditPackModuleInput.swift in Sources */,
 				7441A3A7BAFDBE9635F9E5CD /* EditPackPresenter.swift in Sources */,
 				06C309243678DA004FE55B5D /* EditPackInteractorInput.swift in Sources */,
+				073C5CB12125C0B600346C8F /* UpdatePhraseNetworkRequest.swift in Sources */,
 				F4A792BB6790463EDFC625B9 /* EditPackInteractorOutput.swift in Sources */,
 				D2D371241230FD711587255E /* EditPackInteractor.swift in Sources */,
 				CF7160DEECDD2773504F4E0E /* EditPackRouterInput.swift in Sources */,
 				8361B1776254D8372C0B6438 /* EditPackRouterOutput.swift in Sources */,
 				E738F2E3220A76F3F62D0F2C /* EditPackRouter.swift in Sources */,
+				073C5CAF2125BF3E00346C8F /* UpdateReviewNetworkRequest.swift in Sources */,
 				2D63DEF1253460B0D1F7053D /* EditPackConfigurator.swift in Sources */,
 				1166F8540678EBFE71AC0421 /* LoginViewInput.swift in Sources */,
 				1202F2FA2A41D37E78129193 /* LoginViewOutput.swift in Sources */,
 				55538DCB6C47DB60A2F96B65 /* LoginViewController.swift in Sources */,
 				1041F323F800F96EE8F750C1 /* LoginModuleInput.swift in Sources */,
 				F8B758F20B5E3DC0E531E30C /* LoginPresenter.swift in Sources */,
+				073C5CAB2125BE1000346C8F /* AllPacksNetworkRequest.swift in Sources */,
 				2B9363BB78BD563AE62CDC95 /* LoginInteractorInput.swift in Sources */,
 				567F83658E4929FD2BFCA9D0 /* LoginInteractorOutput.swift in Sources */,
 				ED6F13C4CF7F706B36F85712 /* LoginInteractor.swift in Sources */,
