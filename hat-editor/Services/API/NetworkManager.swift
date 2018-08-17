@@ -35,9 +35,21 @@ class NetworkManager {
         DispatchQueue.global(qos: .background).async {
             for request in self.requestsQueue {
                 do {
-                    try self.send(request: request.data).bind(to: request.rawResponseSubject).disposed(by: self.bag)
+                    //try self.send(request: request.data).bind(to: request.rawResponseSubject).disposed(by: self.bag)
+                    let response = try self.send(request: request.data)
+                    response.flatMap({ arg -> Observable<(HTTPURLResponse, Data)> in
+                        // TODO: fix it
+                        request.isProcessed = true
+                        self.requestsQueue = self.requestsQueue.filter { !$0.isProcessed }
+
+                        return Observable.just(arg)
+                    }).bind(to: request.rawResponseSubject).disposed(by: self.bag)
                 } catch let error {
-                    print(error)
+                    // TODO: fix it
+                    request.isProcessed = true
+                    self.requestsQueue = self.requestsQueue.filter { !$0.isProcessed }
+
+                    request.rawErrorSubject.onNext(error)
                 }
             }
         }

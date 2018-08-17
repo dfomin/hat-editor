@@ -11,7 +11,6 @@ import RxSwift
 class PhraseServiceImpl {
     private let store: StoreService
 
-    private let phraseSubject = PublishSubject<Phrase>()
     private let errors = PublishSubject<Error>()
 
     private let bag = DisposeBag()
@@ -28,7 +27,7 @@ extension PhraseServiceImpl: PhraseService {
         request.responseSubject.subscribe { [weak self] event in
             switch event {
             case .next(NetworkResponse.success(let value)):
-                self?.phraseSubject.onNext(value)
+                self?.store.phraseInput.onNext(value)
             case .next(NetworkResponse.error(let error)), .error(let error):
                 self?.errors.onNext(error)
             case .completed:
@@ -40,7 +39,20 @@ extension PhraseServiceImpl: PhraseService {
     }
 
     func update(review: Review, for phraseTrackID: Int) {
+        let request = UpdateReviewNetworkRequest(review: review, for: phraseTrackID)
 
+        request.responseSubject.subscribe { [weak self] event in
+            switch event {
+            case .next(NetworkResponse.success(let value)):
+                self?.store.phraseInput.onNext(value)
+            case .next(NetworkResponse.error(let error)), .error(let error):
+                self?.errors.onNext(error)
+            case .completed:
+                break
+            }
+        }.disposed(by: bag)
+
+        request.schedule()
     }
 
     var phraseOutput: Observable<[PhrasesPack]> {

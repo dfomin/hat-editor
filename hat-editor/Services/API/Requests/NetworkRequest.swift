@@ -23,6 +23,8 @@ class NetworkRequest {
 
     let data: NetworkRequestData
     let rawResponseSubject = PublishSubject<(HTTPURLResponse, Data)>()
+    let rawErrorSubject = PublishSubject<Error>()
+    var isProcessed = false
 
     init(data: NetworkRequestData) {
         self.data = data
@@ -43,7 +45,6 @@ class TypedNetworkRequest<T: Codable>: NetworkRequest {
 
         rawResponseSubject.flatMap({ arg -> Observable<NetworkResponse<T>> in
             do {
-                print(String(data: arg.1, encoding: String.Encoding.utf8) ?? "")
                 let value = try JSONDecoder().decode(T.self, from: arg.1)
                 return Observable.just(NetworkResponse.success(value))
             } catch let error {
